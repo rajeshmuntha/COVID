@@ -41,89 +41,87 @@ $res=mysqli_query($conn,"select * from patient where validation='".$auth."'");
 						
 						}
 ?>
-<br>
+
+<html lang="en">
+	<head>
+    <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
+    <meta name"viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
 <style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1000px;
-   }
-
-#des td {
-  border: 1px solid #09F;
-  padding: 8px;
-  font-size: 16px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-#des tr:hover {background-color: #ddd;}
-
-#des th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
+	*{
+		box-sizing: border-box;
+	}
 </style>
-<table width="1000" border="1" id="des" align="center" bgcolor="#FFFFFF">
+<body>
+	
+<div class="container mt-5 p-4 shadow rounded rounded-4 table-responsive">
+<table class="table table-hover table-bordered animate__animated animate__fadeInLeft">
+<tr>
+	<td colspan="4" class="bg-light fs-4 text-primary fw-bold" align="center" valign="middle">Patient Profile</td>
+</tr>
+<tr>
+	<td colspan="4" class="bg-light" align="left" valign="middle"><strong>NAME: </strong><?php echo $f_name.'&nbsp;'.$l_name;?></td>
+</tr>
+<tr>       
+	<td><strong>MRN: </strong><?php echo $icno;?></td>
+	<td ><strong>GENDER:</strong> <?php echo strtoupper($gen);?></td>
+	<td  rowspan="3" align="center"><img src="img/cov-19-logo.png" width="85" height="100"></td>
+</tr>
+<tr>
+<?php
+//$dateOfBirth = "17-10-1985";
+$today = date("Y-m-d");
+$diff = date_diff(date_create($dob), date_create($today));
+//echo 'Age is '.$diff->format('%y');
+?>
 
-  <tr>
-    <td height="35" colspan="4" align="left" valign="middle"><strong>Name: </strong><?php echo $f_name.'&nbsp;'.$l_name;?></td>
-  </tr>
-  <tr>       
-    <td height="35"width="433"><strong>MRN: </strong><?php echo $icno;?></td>
-    <td width="435"><strong>GENDER:</strong> <?php echo strtoupper($gen);?></td>
-    <td width="110" rowspan="3" align="center"><img src="img/cov-19-logo.png" width="85" height="100"></td>
-  </tr>
-  <tr>
-  <?php
-	//$dateOfBirth = "17-10-1985";
-	$today = date("Y-m-d");
-	$diff = date_diff(date_create($dob), date_create($today));
-	//echo 'Age is '.$diff->format('%y');
-  ?>
-  
-    <td height="35"><strong>AGE: </strong><?php echo ''.$diff->format('%y');?></td>
-    <td><strong>DOB: </strong><?php echo $dob;?></td>
-  </tr>
-  <tr>
-    <td height="35"><strong>NATIONAL ID:</strong><?php echo $icno;?> </td>
-    <td><strong>DOCTOR: </strong>
-      <?php
-      $doc=mysqli_query($conn,"select * from results where r_id='".$p_id."'");
-            while($row=mysqli_fetch_array($doc))
-                        {
-                        $name = $row["uid"];
-                          $name=mysqli_query($conn,"select * from authenticate where user_id='".$name."'");
-                            while($row1=mysqli_fetch_array($name))
-                        {
-                                echo $row1["name"];
-								$doctor = $row1["name"];
-								
-                        }  
-                        }
-                         ?>
+	<td height="35"><strong>AGE: </strong><?php echo ''.$diff->format('%y');?></td>
+	<td><strong>DOB: </strong><?php echo $dob;?></td>
+</tr>
+<tr>
+	<td height="35"><strong>NATIONAL ID:</strong><?php echo $icno;?> </td>
+	<td><strong>DOCTOR: </strong>
+		<?php
+		$doc=mysqli_query($conn,"select * from results where r_id='".$p_id."'");
+					while($row=mysqli_fetch_array($doc))
+											{
+											$name = $row["uid"];
+												$name=mysqli_query($conn,"select * from authenticate where user_id='".$name."'");
+													while($row1=mysqli_fetch_array($name))
+											{
+															echo $row1["name"];
+							$doctor = $row1["name"];
+							
+											}  
+											}
+											 ?>
 
-    </td>
-  </tr>
+	</td>
+</tr>
 </table>
-<br>
-<table width="1000" border="1" id="des" align="center" bgcolor="#FFFFFF">
-  <tr>       
-    <td height="35"width="250" align="center"><strong>TEST ID</strong></td>
-    <td height="35"width="250" align="center"><strong>TEST OBTAINED</strong></td>
-    <td height="35"width="250" align="center"><strong>COLLECTION DATE</strong> </td>
-    <td height="35"width="250" align="center"><strong>TEST STATUS</strong></td>
-	<td height="35"width="250" align="center"><strong>TEST RESULT</strong></td>
+
+<hr class="text-danger">
+
+<table class="table table-hover table-bordered text-center animate__animated animate__fadeInRight">
+  <thead>
+	<tr>       
+    <td space="row"><strong>TEST ID</strong></td>
+    <td space="row"><strong>TEST OBTAINED</strong></td>
+    <td space="row"><strong>COLLECTION DATE</strong> </td>
+    <td space="row"><strong>TEST STATUS</strong></td>
+		<td space="row"><strong>TEST RESULT</strong></td>
   </tr>
-  <tr>
-    <td height="35"width="250" align="center"><?php echo $validation;?> </td>
+	</thead>
+  <tbody>
+	<tr>
+    <td><?php echo $validation;?> </td>
     
    <!--  test type declaration  !--> 
-    <td height="35"width="250" align="center"> <?php //echo $type;
+    <td> <?php //echo $type;
 	$type=mysqli_query($conn,"select * from test_type where id='".$type."'");
 						while($row=mysqli_fetch_array($type))
                         {
@@ -134,8 +132,8 @@ $res=mysqli_query($conn,"select * from patient where validation='".$auth."'");
 	
 	
 	</td>
-    <td height="35"width="250" align="center"><?php echo $test_date;?> </td>
-	<td height="35"width="250" align="center"><?php //echo $icno;
+    <td><?php echo $test_date;?> </td>
+	<td><?php //echo $icno;
     $results = mysqli_query($conn, "SELECT * FROM results WHERE r_id = '".$p_id."' AND icno = '".$icno."'");
       $numrows = mysqli_num_rows($results);
     if($numrows == 0)
@@ -147,12 +145,8 @@ $res=mysqli_query($conn,"select * from patient where validation='".$auth."'");
         $res_q = mysqli_query($conn, "SELECT * FROM results WHERE r_id = '".$p_id."' AND icno = '".$icno."'");
         while($row2=mysqli_fetch_array($res_q))
                         {
-			//results   Positive / Negative Report
-			//$results = $row1["r_case"];
-            //echo $row2["r_case"];
             if($row2["r_case"]==0)
 			{
-				//echo "Influenza A & B";
 				$inf=mysqli_query($conn,"select * from results where r_id = '".$p_id."' AND icno = '".$icno."'");
 						while($row=mysqli_fetch_array($inf))
                         {
@@ -201,19 +195,23 @@ $res=mysqli_query($conn,"select * from patient where validation='".$auth."'");
       }
 
   ?> </td>
-    <td><center>  <form method="post"> 
-        <input type="submit" name="report"
-                class="button" value="report" /> 
-          
-           </form> </center></td>
+    <td>
+			<form method="post"> 
+        <input type="submit" name="report" class="btn btn-secondary btn-sm" value="Report" /> 
+      </form>
+		</td>
   </tr>
+	<tr>
+		<td colspan="5" align="right"><button class="btn btn-outline-primary btn-sm" onClick="printContent('div1')">Print Report</button></div>
+		</td>
+	</tr>
+	</tbody>
 </table>
-<table width="1000" border="0" align="center">
-<tr>
-<td align="right"><button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
-</td>
-</tr>
-</table>
+</div>
+
+<br>
+
+
 <div id="div1">
 <style type="text/css">
 .tb1{
@@ -1920,4 +1918,6 @@ INFLUENZA A or B present in human nasopharynx.";
 		  </tr>
 		  
 		</table>
-		
+
+		</body>
+</html>

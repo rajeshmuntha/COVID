@@ -12,66 +12,56 @@ window.history.forward();
 <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>SP CARE | COVID REPORTS</title>
-<link rel= "stylesheet" href="style.css" />
-<style type="text/css">
-#backimg {
-	width: 100%;
-	position: fixed;
-	z-index: -100;
-	left: 0px;
-	top: 0px;
-	min-height: 100%;
-	min-width: 100%;
-}
-a:link {
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: none;
-}
-a:active {
-	text-decoration: none;
-}
-</style>
-<style type="text/css">
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 5px; 
-    border: 1.5px solid #3db2e1; 
-    outline:0; 
-    height:40px; 
-    width: 290px;
-	font-family: courier;
-}
+<link rel= "stylesheet" href="./css/style-login.css" />
+<!-- Google Fonts cdn -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Bootstrap 5.3 cdn -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!-- Bootstrap icons cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-  </style>
+
 </head>
 <body>
-<img src="img/back.png" name="backimg" width="auto" height="auto" id="backimg" />
-	<div class="loginbox">
-    	
-      <h2 style="color: #332b92;"><img src="img/login.png" class ="" style="width: 30%; margin-bottom: 9px;"><br />SP GROUP</h2>
-        <form method="POST" style="margin-bottom: 0px;">
-        	<p style="color: #332b92;">IC/Passport No</p>
-            <div class="inputbox">
-            <input type="text" name="icno" placeholder="IC/Passport No." required=""/>
-            <span><i class="fa fa-user" aria-hidden="true"></i></span>
-            </div>
-            <p style="color: #332b92;">Reg. No.</p>
-            <div class="inputbox">
-          
-              <p><input type="password" name="validation" placeholder="Reg No" required=""/></p>
-               
-                
-                <span><i class="fa fa-lock" aria-hidden="true"></i></span></p>
-            </div>
-            <center>
-              <p>
+<section class="container-fluid pt-5 bg-img">
+		<div class="container-xxl container-xl container-lg container pad animate__animated animate__zoomIn">
+			<div class="row p-4 inner-bg bg-light shadow-lg">
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 text-center">
+					<img width="60%" height="auto" src="./img/cov-19-logo.png" class="img-fluid" alt="">
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+						<div class="display-6 text-center">
+							<span class=""><span class="text-danger">SP Care Group</span></span> <br>
+							<span class="text-primary fs-3 mt-5">*** Patient Login <i class="bi bi-unlock"></i> ***</span>
+						</div>
+					<div class="mt-4">
+						<form method="POST">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control bg-light" id="floatingInput" name="icno" placeholder="Enter IC / Passport No." required/>
+							<label for="floatingInput">User ID</label>
+						</div>
+						<div class="form-floating">
+							<input type="password" class="form-control bg-light" id="floatingPassword" name="validation" placeholder="Enter Registration No." required/>
+							<label for="floatingPassword">Password</label>
+						</div>
+						<div class="pt-3 mt-0 ">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="Switch" onclick="SwitchMyFunction()">
+                    <p class="text">If not a Robot <i class="text-danger bi bi-robot"></i>, <span class="text-primary">enable switch to Login. </span> </p>
+                  </div>                  
+                </div>
+						
+						<div  class="row ">
+							<div class="col-xl-6 col-lg-6 col-12 pb-3 d-grid">
+								<input type="reset" class="btn btn-secondary" name="submit" value="Click to reset"/>
+							</div>	
+							<div class="col-xl-6 col-lg-6 col-12 d-grid">
+								<input style="display: none;" id="SwitchEnableBtn" type="submit" class="btn btn-primary animate__animated animate__bounceInLeft mb-3" name="submit" value="Click to Login"/>
+							</div>					
+						</div>
+
+
 <?php
 
 session_start();
@@ -123,11 +113,39 @@ if(isset($_POST["submit"]))
 		}
 	}
 ?>
-<input type="submit" name="submit"/>
-        </form>
-    </p>
-</center>      
-     </div>
+        </form> 
+				<div  class="row p-2 m-1 rounded rounded-4 bg-white shadow text-center">
+						<div class="col-lg-8 col-12">
+							<h6 class=" text-danger pt-1">For Queries Please Contact <i class="bi bi-arrow-bar-right"></i></h6>
+						</div>
+						<div class="col-lg-4 col-12 float-start">
+							<a href="tel:0360917725"  onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Call', eventLabel: 'Mobile Button'});" class=""><i class="fs-6 bi bi-telephone"></i></a>
+							<a href="https://wa.link/gp7cqn" target="_blank" class="px-4"><i class="fs-6 bi bi-whatsapp"></i></a>
+							<a href="mailto:support@sptechhub.com" class="text-decoration-none"><i class="fs-6 bi bi-envelope-at"></i></a>
+						</div>      		    
+					</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</section>
+  
+
+
+<!-- Bootstrap js cdn -->
+		 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+		 <script>
+			// to enable Login button
+      function SwitchMyFunction() {
+        let checkBox = document.getElementById("Switch");
+        let text = document.getElementById("SwitchEnableBtn");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+      }
+		 </script>
 
 </body>
 </html>
