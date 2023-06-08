@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	
+	
+}
+.loginbox
+{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 350px;
+		height: 380px;
+		padding: 20px 40px;
+		box-sizing: border-box;
+		background: rgba(0,0,0,.5);
+		background: #badddc;
+		border-radius: 18px;
+}
+.user
+{
+		width: 100px;
+		height: 100px;
+		boarder-radius: 50%;
+		overflow: hidden;
+		position: absolute;
+		top: calc(-100px/2);
+		left: calc(50% - 50px);
+			
+}
+h2
+{
+	margin: 0;
+	padding: 0 0 20px;
+	color: #FFF;
+	text-align: center;
+}
+.inputbox
+{
+	position: relative;
+	
+	
+}
+.inputbox span
+{
+	position: absolute;
+	top: 10px;
+}
+
+.loginbox p
+{
+		margin: 0;
+		paddig: 0;
+		font-weight: bold;
+		color: #fff;
+}
+.loginbox input
+{
+	width: 100%;
+	margin-bottom: 20px;	
+}
+.loginbox input[type="text"],
+.loginbox input[type="password"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	padding-left: 20px;
+}
+::placeholder
+{
+	color: rgba(255,255,255,.5);
+}
+.loginbox input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height: 45px;
+	width: 75%;
+	color: #fff;
+	font-size: 16px;
+	background: #ff267e;
+	cursor: pointer;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-weight: 500;
+	}
+.loginbox input[type="submit"]:hover
+{
+		background: #2c9cd4;
+		color: #fff;
+}
+.loginbox a
+{
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+@media only screen and (max-width: 480px) {
+  .desktop {
+    display: none;
+}
+.loginbox {
+    width: 279px !important;
+    height: 349px !important;
+}
+.ptn-reports-search {
+	width: auto !important;
+}
+}
+@media only screen and (min-width: 480px) {
+  .mobile {
+    display: none;
+}
+}

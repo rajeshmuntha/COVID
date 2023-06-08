@@ -1,0 +1,62 @@
+
+body {
+    font-family:Arial;
+    margin:0;
+    padding:0px;
+}
+.extender {
+    height:1px;
+    clear:both;
+}
+#header_bg {
+	width:auto;
+    height : 100px;
+	background:#09F;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+#header {
+    width : 980px; 
+    height : 80px;
+    margin:0 auto;
+}
+
+#footer {
+    /* position : relative;*/
+    margin-top :0px;
+    height : 66px;
+    clear : both;
+    background-image:url(../img/foot.png);
+	background-repeat:repeat-x;
+    width:100%;
+}
+#footer_logo {
+    height:66px;
+    margin-top:0px;
+    width:980px;
+}
+
+#institution-name{
+	margin:auto;
+	alignment-adjust:central;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#header_link{
+    overflow: hidden;
+}
+#header_link div{
+    float: left;
+    margin: 0 5px;
+    padding: 0 5px;
+    overflow: hidden;
+}
+#header_link div a{
+    padding: 3px 3px 3px 23px;
+    display: block;
+    float: left;
+    text-decoration: none;
+}

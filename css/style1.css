@@ -1,0 +1,74 @@
+<style type="text/css">
+  body{ font-family: "Courier New", Courier, monospace;}
+.tb1 {
+	
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:30px; 
+   /* width: 200px;  */
+}
+.tb2 {
+	-webkit-border-radius: 1px; 
+    -moz-border-radius: 1px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:30px; 
+   /* width: 150px; */
+}
+.tb3 {
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:50px; 
+    width: 250px; 
+}
+.tb4 {
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:25px; 
+    width: 200px; 
+}
+.tb5 {
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:30px; 
+    width: 70px; 
+}
+.tb6 {
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:30px; 
+    width: 90px; 
+}
+.tb8 {
+	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 1px; 
+    border: 1.5px solid #3db2e1; 
+	font-family: "Courier New", Courier, monospace;
+    outline:0; 
+    height:50px; 
+    width: 250px; 
+}
+  </style>

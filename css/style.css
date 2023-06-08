@@ -1,0 +1,102 @@
+
+@charset "utf-8";
+/* CSS Document */
+/* header creation*/
+* {
+box-sizing: border-box;	
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'poppins', sans-serif;
+	
+}
+
+/* header ul li{
+	float: left;
+	position: relative;
+	}
+
+	header ul li ul{
+	position: absolute;
+	top: 63px;
+	width: 150px;
+	right: 0px;
+	display: none;
+	}
+	header ul li:hover ul{
+	display: block;	
+	}
+	header ul li ul li{
+	width: 100%;
+	}
+	header ul li ul li a{
+	padding: 10px;
+	background: #332b92;
+	color: white;
+	}
+
+	header ul li a{
+	display: block;
+	padding: 21px;
+	font-size:1.1em;
+	text-decoration: none;
+	} */
+
+	/* header ul li a:hover {
+	background: #3db2e1;
+	color: #332b92;
+	border: 1px solid #332b92;
+	transition: 0.5s;	
+	}
+	header .menu-toggle{
+	display: none;	
+	} */
+
+.super-admin-day-wise-data, .super-admin-panel-wise-data {
+	margin-left: auto;
+	margin-right: auto;
+}
+.top-height-all {
+    height: 72px;
+}
+@media only screen and (max-width: 480px) {
+.ptn-reports-search, .super-admin-day-wise-data, .super-admin-panel-wise-data {
+	width: auto !important;
+}
+.super-admin-day-wise-data, .super-admin-panel-wise-data {
+	margin-left: 0px;
+	margin-right: auto;
+}
+.top-height-all {
+    height: 30px !important;
+}
+.tb1 {
+    width: 118px !important;
+}
+.table-data-scroll {
+	overflow-x: auto !important;
+}
+h1.logo-text img {
+    margin-top: 7px !important;
+}
+span.logo-text2 {
+    left: 79px !important;
+    top: 13px !important;
+}
+table.report-sasw, table.report-sadw, table.report-panel, table.ptn-details-update, table.ptn-reports-search2 {
+width: 100% !important
+}
+table.report-sasw tr:nth-child(2) td, table.report-sadw tr:nth-child(2) td, table.report-panel tr:nth-child(2) td {
+width: auto !important;
+text-align: center !important;
+}
+table.ptn-details-update tr:nth-child(2) td, table.ptn-reports-search2 tr:nth-child(2) td {
+width: auto !important;
+text-align: left !important;
+}
+.tb3 {
+    width: 30% !important;
+}
+}

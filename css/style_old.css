@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+/* header creation*/
+* {
+box-sizing: border-box;	
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+body {
+	padding: 0px;
+	margin: 0px;
+	baground: #999;
+	font-family: 'cambria';
+	
+}
+header {
+background: #99F;
+height: 66px;
+position: fixed;	
+width: 100%; 	
+ 
+}
+header *{
+	color: white;
+}
+header .logo
+{
+	float: left;
+	height: inherit;
+	margin-left: 2em;
+	
+}
+header .logo-text
+{
+	margin: 8px;
+}
+header .logo-text span
+{
+	color: #900;
+}
+header ul {
+float: right;
+margin: 0px;
+padding: 0px;
+list-style: none;
+font-family: 'cambria';
+
+
+}
+header ul li{
+float: left;
+position: relative;
+}
+/* dropdown width */
+header ul li ul{
+position: absolute;
+top: 62px;
+width: 150px;
+right: 0px;
+display: none;
+}
+header ul li:hover ul{
+display: block;	
+}
+header ul li ul li{
+width: 100%;
+}
+header ul li ul li a{
+padding: 10px;
+background: #008489;
+color: #FFF;
+}
+/* font size and menu length */
+header ul li a{
+display: block;
+padding: 21px;
+font-size:1.1em;
+text-decoration: none;
+}
+/* menu highlights */
+header ul li a:hover {
+background: #006669;
+transition: 0.5s;	
+}
+header .menu-toggle{
+display: none;	
+}
+@media (max-width: 786px)
+{
+	header {
+	position: relative;	
+	}
+	header ul
+	{
+		width: 100%;
+		background: #0e94a0;
+		max-height: 0px;
+		overflow: hidden;
+	}
+	.showing{
+		max-height: 100em;
+		
+	}
+	header ul li
+	{
+		width: 100%;
+	}
+	header ul li ul
+	{
+	position: static;
+	display: block;
+	width:100%; 
+	}
+	header ul li ul li a{
+	padding: 10px;
+	background: #008489;
+	color: #FFF;
+	padding-left: 50px;
+} 
+header ul li ul li a:hover{
+	background: #006669;
+	} 
+header .menu-toggle
+{
+	display: block;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-size: 1.9em;
+	
+}
+header .logo
+{
+	
+	margin-left: .5em;
+	
+}
+	
+} 
