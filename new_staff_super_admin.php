@@ -10,61 +10,7 @@ if($_SESSION["islogin"] == 'N'){
   header("Location: index.php");
 }
 ?>
-<style type="text/css">
-  
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 200px;
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 610px;
-}
-.tb3 {
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    
-}
-.tb4 {
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 100px; 
-}
 
-  </style>
-  <style>
-  #tdh th {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-  </style>
   <script>
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
@@ -77,32 +23,43 @@ $validate = strtoupper($vali);
 <?php
 $auth = $_SESSION['user_id'];
 ?>
+
+<!-- Bootstrap icons cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<section class="">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    
 <form action="" method="post" name="form1" id="form1">
-<table width="480" height="264" border="0" align="center" id="tdh">
-  <tr>
-    <th colspan="2" align="center"><strong>New Staff</strong></strong></th>
+<table class="table-responsive table table-hover table-bordered text-center align-middle">
+  <thead>
+    <tr>
+      <th scope="row" colspan="2" class="fs-4 bg-light text-primary" >Add New Staff</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  <tr><th scope="">Staff ID</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" name="user_id" placeholder="Enter Staff Uniq ID" required/></td>
   </tr>
   <tr>
-    <td width="204" height="36">Staff ID</td>
-    <td width="262"><input type="text" class="tb1" name="user_id" placeholder="Enter Staff Uniq ID" required/></td>
-  </tr>
-  <tr>
-    <td height="36">Login Password</td>
-    <td><input type="password" class="tb1" placeholder="Login Password" name="pass" required>
+      <th scope="">Login Password</th>
+    <td><input type="password" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Login Password" name="pass" required>
 					</td>
   </tr>
   <tr>
-    <td height="36">Staff Name</td>
-    <td><input type="text" class="tb1" placeholder="Staff Name" name="name" required></td>
+      <th scope="">Name of the Staff</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Staff Name" name="name" required></td>
   </tr>
   <tr>
-    <td height="36">Designation</td>
-    <td><input type="text" class="tb1" placeholder="Designation" name="dgn" required></td><td width="0"></td>
+      <th scope="">Designation</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Designation" name="dgn" required></td>
   </tr>
   <tr>
-    <td height="32">Role of Staff</td>
-    <td><select name="role" class="tb3" required="required">
-      <option value="">Select Role</option>
+      <th scope="">Role of Staff</th>
+    <td scope=""><select name="role" class="form-control animate__animated animate__fadeInRight" required="required">
+      <option selected value="">Select Role</option>
       <option value="1">Super Admin</option>
       <option value="2">Admin</option>
       <option value="3">Doctor</option>
@@ -113,9 +70,13 @@ $auth = $_SESSION['user_id'];
 	<input type="hidden" name="value" value="1">
   </tr>                                           
   <tr>
-    <td height="36" align="center">&nbsp;</td>
-    <td height="36" align="left"><input type="submit" name="submit" value="Register" class="tb4" /></td>
+    <td colspan="2">
+      <div class="d-grid">
+      <input type="submit" class="btn btn-outline-success animate__animated animate__tada" name="submit" value="Register" />
+      </div>
+    </td>
   </tr>
+  </tbody>
 </table>
 <?php
 if(isset($_POST["submit"])){
@@ -170,43 +131,27 @@ if(isset($_POST["submit"])){
 			
                ?>
 </form>
-   <style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 900px;
-   }
+  </div>
+</section>  
 
-#des td {
-  border: 1px solid #09F;
-  padding: 6px;
-  font-size: 14px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>    
-<br />        
-<table align='center' id="des" border="1" width="800">
+    
+<section class="pt-5">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    <table class="table-responsive table table-hover table-bordered text-center align-middle">
+  <thead>
+    <tr>
+      <th scope="row" colspan="7" class="fs-4 bg-light text-primary" >Staff Configuration</th>
+    </tr>
+  </thead>
             <thead>
                 <tr>
-                	<th width='50'>S.No.</th>
-                    <th width='100'>User ID</th>
-                    <th width='350'>Employee Name</th>
-                    <th width='150'>Role of Activity</th>
-                    <th width='40'>Status</th>
-                    <th width='40' align="center" valign="middle">Action</th>
-                    <th width='40' align="center" valign="middle">Reset</th>
+                	<th class="bg-light">S.No.</th>
+                    <th class="bg-light" >User ID</th>
+                    <th class="bg-light" >Employee Name</th>
+                    <th class="bg-light" >Role of Activity</th>
+                    <th class="bg-light">Status</th>
+                    <th class="bg-light">Action</th>
+                    <th class="bg-light">Reset</th>
                                        
                 </tr>
             </thead>
@@ -247,8 +192,8 @@ if(isset($_POST["submit"])){
 					}
 					
 					?></td>
-                    <td align="center" valign="middle"><a href="employee_approval.php?id=<?php echo $row["id"]; ?>"><button><img src="img/status.gif" width="16" height="18" /></button></td>
-                    <td align="center" valign="middle"><a href="reset_employee_password.php?id=<?php echo $row["id"]; ?>"><button><img src="img/reset.png" width="16" height="18" /></button></td>
+                    <td align="center" valign="middle"><a href="employee_approval.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-primary">Click to Config <i class="bi bi-gear"></i></button></td>
+                    <td align="center" valign="middle"><a href="reset_employee_password.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-secondary">Change Password <i class="bi bi-key"></i></button></td>
                     
                     
                                  
@@ -259,4 +204,6 @@ if(isset($_POST["submit"])){
                 ?>
                 </tbody>
         </table>
+  </div>
+</section>        
         <?php //} ?>

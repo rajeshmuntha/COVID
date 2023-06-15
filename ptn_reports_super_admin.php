@@ -8,47 +8,25 @@ if($_SESSION["islogin"] == 'N'){
   header("Location: ptn_login.php");
 }
 ?>
-<style type="text/css">
- 
-.tb3 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	 height:30px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
-<table width="1000" border='0' align="center">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <section class="pt-4 animate__animated animate__fadeInRight">
+  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+<table class="table table-bordered ">
         <tr>
-          <td align="center"><strong>PATIENT REPORTS</strong></td>        
+          <th class="bg-light text-primary fs-4 text-center">Patient Reports</th>        
         <tr>
+          <tr>
         	<td align="right">
            <form action="ptn_reports_super_admin_res.php? = Results" method="post" >
                Patient Uniq ID No: 
                  <input type="text" class="tb3" name="validation" placeholder="Enter Uniq ID">
-                <input type="submit" class="tb2" name="submit" value="Search">
+                <input type="submit" class="btn btn-secondary" name="submit" value="Search">
             </form>
             </td>
-        <tr>
+        </tr>
         </table>
-			 
-				</td>
-		  </tr>
-		  
-		</table>
+  </div>
+  </section>
 		

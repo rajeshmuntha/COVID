@@ -47,45 +47,27 @@ if(isset($_POST['update']))
     }    	
 }
 ?>
-<style type="text/css">
-  
-.tb1 {
-  
-  -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 200px;
-}
-.tb2 {
-  -webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 100px;
-}
-
-  </style>
-<table width="500" height="193" border="0" align="center">
-  
+<section class="pt-4 animate__animated animate__fadeInRight">
+  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+<table width="500" class="table table-bordered table-hover align-middle text-center">
+  <thead>
+    <tr>
+      <th colspan="2" class="text-center bg-light text-primary fs-4">Update Patient Details</th>
+    </tr>
+  </thead>
   
   <form method="POST">
- <tr> <td width="100" hight="30">First Name</td><td><input type="text" class="tb1" name="f_name" value="<?php echo $data['f_name'] ?>" placeholder="Enter First Name" Required></td></tr>
-  <tr><td width="100">Last Name</td><td><input type="text" name="l_name" class="tb1" value="<?php echo $data['l_name'] ?>" placeholder="Enter Last Name" Required></td></tr>
- <tr><td width="100"> I/C No.</td><td><input type="text" name="icno" class="tb1" value="<?php echo $data['icno'] ?>" placeholder="Enter Valid ICNO" Required></td></tr>
- <tr><td width="80">DOB</td><td><input type="text" name="dob" class="tb1" value="<?php echo $data['dob'] ?>" placeholder="Date Of Birth" Required></td></tr>
- <tr><td width="100">Gender</td><td><input type="text" class="tb1" name="gender" value="<?php echo $data['gender'] ?>" placeholder="Gender" Required></td></tr>
- <tr><td width="100">Test Type</td><td><input type="text" class="tb1" name="t_type" value="<?php echo $data['t_type'] ?>" placeholder="TEST OBTAINED" Required></td></tr>
- <tr><td width="100">Cash</td><td><input type="text" class="tb1" name="rm_cash" value="<?php echo $data['rm_cash'] ?>" placeholder="CASH" Required></td></tr>
- <tr><td width="100">Online</td><td><input type="text" class="tb1" name="rm_online" value="<?php echo $data['rm_online'] ?>" placeholder="ONLINE" Required></td></tr>
- <tr><td width="100">Reference</td><td><input type="text" class="tb1" name="p_ref" value="<?php echo $data['p_ref'] ?>" placeholder="Reference" Required></td></tr>
- <tr><td></td> <td><input type="submit" class="tb2" name="update" value="Update"></td></tr>
+ <tr> <td class="bg-light fw-bold" width="200" hight="30">First Name</td><td><input type="text" class="form-control" name="f_name" value="<?php echo $data['f_name'] ?>" placeholder="Enter First Name" Required></td></tr>
+  <tr><td class="bg-light fw-bold" width="200">Last Name</td><td><input type="text" name="l_name" class="form-control" value="<?php echo $data['l_name'] ?>" placeholder="Enter Last Name" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200"> I/C No.</td><td><input type="text" name="icno" class="form-control" value="<?php echo $data['icno'] ?>" placeholder="Enter Valid ICNO" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">DOB</td><td><input type="text" name="dob" class="form-control" value="<?php echo $data['dob'] ?>" placeholder="Date Of Birth" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">Gender</td><td><input type="text" class="form-control" name="gender" value="<?php echo $data['gender'] ?>" placeholder="Gender" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">Test Type</td><td><input type="text" class="form-control" name="t_type" value="<?php echo $data['t_type'] ?>" placeholder="TEST OBTAINED" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">Cash</td><td><input type="text" class="form-control" name="rm_cash" value="<?php echo $data['rm_cash'] ?>" placeholder="CASH" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">Online</td><td><input type="text" class="form-control" name="rm_online" value="<?php echo $data['rm_online'] ?>" placeholder="ONLINE" Required></td></tr>
+ <tr><td class="bg-light fw-bold" width="200">Reference</td><td><input type="text" class="form-control" name="p_ref" value="<?php echo $data['p_ref'] ?>" placeholder="Reference" Required></td></tr>
+ <tr>
+   <td colspan="2"><input type="submit" class="btn btn-outline-success" name="update" value="Click to Update"></td></tr>
 </form>
 
 

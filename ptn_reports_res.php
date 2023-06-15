@@ -17,6 +17,10 @@ location.replace("logout.php? = Invalid Login");
     <meta name"viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- Bootstrap 5.3 cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
   *{
     box-sizing: border-box;
@@ -24,7 +28,57 @@ location.replace("logout.php? = Invalid Login");
 </style>
 </head>
 <body>
-<section class="pt-5">
+<header>
+            <nav class="navbar navbar-expand-md bg-body-tertiary shadow-sm fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45px" height="auto" class="d-inline-block ">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="employee_1.php? = Staff Home Page">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="new_patient_level_1.php? = New Patient Creation">Add New Patient</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="patient_data_level_I.php? = Patient Details">Patient Details</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item animate__animated animate__bounceInDown">
+                            <a class="nav-link active" aria-current="page" href="ptn_reports.php? = Patient Reports">Reports</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="queries_employee_1.php? = Emplyee Queries">Queries</a>
+                            </li>
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php
+							echo "Hi..".$_SESSION['user_id'];
+							?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="reset.php?=Password Reset">Change Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+        </header>
+
+<section class="pt-5 mt-5">
   <div class="container p-4 shadow-lg rounded rounded-4">
     <table class="table table-responsive table-hover table-bordered">
       <thead>
@@ -77,7 +131,7 @@ if (mysqli_num_rows($res) > 0)
 ?>
 <br>
 
-<div class="container shadow rounded rounded-4 p-4 mt-4 table-responsive">
+<div class="container shadow rounded rounded-4 p-4 mt-4 table-responsive animate__animated animate__bounceInDown">
 <table class="table table-bordered">
 <thead>
 	<tr>
@@ -216,7 +270,11 @@ $diff = date_diff(date_create($dob), date_create($today));
       }
 	 
   ?> </td>
-   
+	<tr>
+	<td colspan="4" align="center">
+	<button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report</button></div>
+	</td>
+		</tr>
   </tr>
 </table>
 </div>
@@ -229,13 +287,10 @@ function printContent(el){
 	document.body.innerHTML = restorepage;
 }
 </script>
-<table width="1000" align="center">
-<tr>
-<td align="right">
-<button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
-</td>
-</tr>
-</table>
+
+
+
+
  <div id="div1">
 <style type="text/css">
 .tb1{
@@ -243,19 +298,22 @@ function printContent(el){
 	border-collapse: collapse;
 	height: 20px;
 	text-align: left;
-	font-family: "cambria";
+	font-family: 'Barlow', sans-serif;
 	font-size: 15px;
 	border:#4e95f4;
 	}
 	
 </style>
 <style type="text/css">
+	*{
+		font-family: 'Barlow', sans-serif;
+	}
 .tb7{
 	width: 1000px;
 	height: 100px;
 	border-collapse: collapse;
 	
-	font-family: "Courier";
+	font-family: 'Barlow', sans-serif;
 	font-size: 16px;
 	border:#4e95f4;	
 	}
@@ -287,7 +345,7 @@ function printContent(el){
 			echo "<br>";
 			echo "<br>";
 			echo "<br>";
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
 			

@@ -15,7 +15,7 @@ error_reporting( error_reporting() & ~E_NOTICE )
         <title>SP CARE | ADMIN</title>
      </head>
      <body>
-     	<header>
+     	<header class="shadow-sm">
         <div class="logo">
         <h1 class="logo-text"><img src="img/h_logo.png" width="10%"> <span class="logo-text2" style="color: #fff !important;position: absolute; left: 108px; top: 14px;"><span style="color: #961c1f;"> 
         <head> 
@@ -24,7 +24,7 @@ error_reporting( error_reporting() & ~E_NOTICE )
                 text-shadow: 0 0 3px #3db2e1;
                 }
           </style>COV-19 </span>
-        </head>SYSTEM</span></h1> 
+        </head>SYS</span></h1> 
         </div>
         <i class="fa fa-bars menu-toggle" style="font-size:25px;color:red"></i>
         <ul class="nav">

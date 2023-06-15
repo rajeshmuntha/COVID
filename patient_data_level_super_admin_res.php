@@ -25,64 +25,24 @@ location.replace("logout.php? = Invalid Login");
 <head>
 <script src="jquery-3.2.1.min.js"></script>
  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
-<style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1000px;
-   }
 
-#des td {
-  border: 1px solid #09F;
-  padding: 9px;
-  font-size: 14px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 16px;
-  padding-bottom: 10px;
-  text-align: center;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>
 </head>
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
     <div class="outer-scontainer">
-        <div class="row" align='center'>
-        <table width="1000">
+    <section class="container">
+    <nav aria-label="breadcrumb mb-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="patient_data_level_super_admin.php?id=<?php echo $row["id"]; ?>">Total Patient Records</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Searched Patient Record</li>
+  </ol>
+</nav>
+
+  <div class="container mt-3 p-4 table-responsive shadow-lg rounded rounded-4">
+        <table class="table table-bordered">
         <tr>
-          <td align="center"><strong>PATIENT RECORDS</strong></td>        
+          <td class="text-center bg-light text-primary fs-4"><strong>Patient Records</strong></td>        
         <tr>
         	<td align="right">
            <form action="" method="post" >
@@ -93,6 +53,7 @@ location.replace("logout.php? = Invalid Login");
             </td>
         <tr>
         </table>
+
                <?php
 			   $i=1;
 			   $icno = $_POST['icno'];
@@ -100,19 +61,18 @@ location.replace("logout.php? = Invalid Login");
 			//$sqlSelect = mysqli_query($conn, "SELECT * FROM patient where icno = $icno group by icno LIMIT 10");
                ?>
                
-            <div class="table-data-scroll">   
-            <table align='center' border="1" id="des" width="1200">
+            <div class="animate__animated animate__bounceInDown">   
+            <table id="des" class="table table-bordered table-hover align-middle text-center mt-3">
             <thead>
                 <tr>
-                    <th width='20'>S.No</th>
-                    <th width='90'>IC/Passport No</th>
-                    <th width='280'>Patient Name</th>
-                    <th width='90'>Test Type</th>
-                    <th width='80'>Reg. No.</th>
-                    <th width='100'>Test Location</th>
-                    <th width="140">DOR</th>
-                    <th width='40'>Details</th>
-                    
+                    <th class="bg-light align-middle" width='20'>S.No</th>
+                    <th class="bg-light align-middle" width='90'>IC/Passport No</th>
+                    <th class="bg-light align-middle" width='280'>Patient Name</th>
+                    <th class="bg-light align-middle" width='90'>Test Type</th>
+                    <th class="bg-light align-middle" width='80'>Reg. No.</th>
+                    <th class="bg-light align-middle" width='100'>Test Location</th>
+                    <th class="bg-light align-middle" width="140">DOR</th>
+                    <th class="bg-light align-middle" width='40'>Details</th>
                 </tr>
             </thead>
 <?php
@@ -143,21 +103,15 @@ location.replace("logout.php? = Invalid Login");
                             break;
                             case 7: echo"Influenza A & B";
                             break;
-
                     }
-                    
-
-
-
-
-               ?>
+                    ?>
                 
                </td>
                <td><?php  echo $row['validation']; ?></td>
                     <td><?php  echo $row['t_location']; ?></td>
                     <td><?php  echo $row['time'];?></td>
                                         
-                   <td><a href="patient_view.php?id=<?php echo $row["id"]; ?>" target="_blank"><button><img src="img/correct1.gif" width="15" height="15"></button></td>
+                   <td><a href="patient_view.php?id=<?php echo $row["id"]; ?>" target="_blank"><button class="btn btn-outline-light"><img src="img/correct1.gif" width="30" height="auto"></button></td>
                 </tr>
                     <?php
                     $i++;
@@ -167,6 +121,7 @@ location.replace("logout.php? = Invalid Login");
         </table>
         </div>
         <?php //} ?>
+            </section>
     </div>
 
 </body>

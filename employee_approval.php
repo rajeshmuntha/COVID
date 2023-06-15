@@ -17,46 +17,14 @@ include_once("conn.php");
 <head>
 <meta charset="utf-8">
 <title>Update Record</title>
-<!--<link rel="stylesheet" href="css/style1.css" />-->
+
+<!-- Bootstrap icons cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
 <div class="form">
-<style type="text/css">
 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 2px; 
-    border: 1.5px solid #3db2e1; 
-    outline:0; 
-    height:30px; 
-    width: 200px; 
-	font-family: "Cambria";
-}
-.tb2 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 2px; 
-    border: 1.5px solid #3db2e1; 
-    outline:0; 
-    height:30px; 
-    width: 170px; 
-	font-family: "Courier New", Courier, monospace;
-}
-.tb3 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 2px; 
-    border: 1.5px solid #3db2e1; 
-    outline:0; 
-    height:30px; 
-    width: 70px; 
-	font-family: "Courier New", Courier, monospace;
-}
-</style>
 <p>
 <?php
 ob_start();
@@ -79,50 +47,52 @@ echo "<center>Subject Name: ".$row['name']." <p style='color:#006600;'>".$status
 
 ?>
 </p>
-<div>
+<section class="animate__animated animate__backInDown">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    
   <form name="form" method="post" action=""> 
 <input type="hidden" name="new" value="1" />
 <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
-<table width="600" align="center">
+<table class="table-responsive table table-hover table-bordered text-center align-middle ">
+    <thead>
+        <tr><th colspan="2" class="bg-light text-primary fs-4">Update Staff Config Status</th></tr>
+    </thead>
 <tr>
-<td align="right">User ID :</td><td><?php //echo $row['year'];
+<th >User ID :</th>
+<td><?php //echo $row['year'];
 $res5=mysqli_query($conn,"select * from authenticate where id = '".$row['id']."'");
 								while($row5=mysqli_fetch_array($res5))
 								{
 								echo $row5["user_id"]; 
 								}
-
 ?></td>
 </tr>
 <tr>
-<tr>
-
+<th >Employee Name :</th>
+<td><?php echo $row['name'];?></td>
 </tr>
 <tr>
-<tr>
-<td align="right">Employee Name :</td><td><?php echo $row['name'];?></td>
-</tr>
-<tr>
-<td align="right">Status :</td><td><!--<input type="text" class="tb1" name="status" required value="<?php //echo $row['status'];?>" />!-->
-<select name="status" class="tb1" required="required">
-      <option value="">Select</option>
+<th>Status :</th>
+<td><!--<input type="text" class="tb1" name="status" required value="<?php //echo $row['status'];?>" />!-->
+<select name="status" class="form-control" required="required">
+      <option selected value="">Select the Status</option>
       <option value="1">Activate</option>
-      <option value="0">Disable</option>
-      
+      <option value="0">De-Activate</option>      
     </select>
-
-
 </td>
 </tr>
 <tr>
-<td></td><td><input name="submit" class="tb3" type="submit" value="Update" /></td>
+    <td colspan="2">
+        <div class="d-grid">
+            <input name="submit" class="btn btn-success" type="submit"  value="Click to Update" />
+        </div></td>
 </tr>
 </table>
 </form>
 <?php } ?>
 
-<br />
 </div>
+</section>
 </div>
 </body>
 </html>

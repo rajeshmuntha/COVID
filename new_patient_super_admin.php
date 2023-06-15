@@ -1,53 +1,8 @@
 <?php
 include_once("header_super_admin.php");
 include_once("conn.php");
-//include_once "left_menu_emp1.php";
 ?> 
-<style type="text/css">
-  
-.tb1 {
-  
-  -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 200px;
-}
-.tb2 {
-  -webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 610px;
-}
-.tb3 {
-  -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 150px; 
-}
-.tb4 {
-  -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-  font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 100px; 
-}
 
-  </style>
   
   <script>
     if ( window.history.replaceState ) {
@@ -72,146 +27,134 @@ $validate = strtoupper($vali);?>
 <?php
 //$auth = $_SESSION['user_id'];
 ?>
-<form action="" method="post" name="form1" id="form1">
-<table width="811" height="463" border="0" align="center">
-  <tr>
-    <td colspan="4" align="center"><strong>Patient Details</strong></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="145">First Name</td>
-    <td width="234"><input type="text" class="tb1" name="f_name" placeholder="FIRST NAME" required/></td>
-    <td width="169">Last Name</td>
-    <td width="245"><input type="text" class="tb1" name="l_name" placeholder="LAST NAME"/></td>
-  </tr>
-  <tr>
-    <td>Gender</td>
-    <td><select name="gender" class="tb3" required>
-                      <option selected>Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Others">Others</option>
-                    </select></td>
-    <td>Date of Birth</td>
-    <td><input type="date" id="birthdaytime" name="dob" value="dd-mm-yyyy" class="tb3" required></td>
-  </tr>
-  <tr>
-    <td>IC/Passport No</td>
-    <td><input type="text" class="tb1" id="icno" placeholder="IC / Passport No" name="icno" required>
-          <input type="hidden" name="validation" value="<?php echo $validate; ?>"></td>
-    <td>Phone Number</td>
-    <td><input type="text" class="tb1" id="phno" placeholder="Phone Number" name="phno" required></td>
-  </tr>
-  <tr>
-    <td>Eamil ID</td>
-    <td><input type="email" class="tb1" id="email" placeholder="Email ID" name="email"></td>
-    <td>Post Code</td>
-    <td><input type="text" class="tb1" id="postcode" placeholder="Post Code" name="pincode"></td>
-  </tr>
-  <tr>
-    <td>Address Line-I</td>
-    <td colspan="3"><textarea class="tb2" rows="1" placeholder="Address Line 1" id="comment" name="address" ></textarea></td>
-  </tr>
-  <tr>
-    <td>Address Line-II</td>
-    <td colspan="3"><textarea class="tb2" rows="1" placeholder="Address Line 2" id="comment" name="street" ></textarea></td>
-  </tr>
-  <tr>
-    <td>State</td>
-    <td><select name="state" class="tb3" required>
-                      <option value="" selected>Select State</option>
-                      <option value="Johor">Johor</option>
-                      <option value="Kedah">Kedah</option>
-                      <option value="Kelantan">Kelantan</option>
-                      <option value="Kuala Lumpur">Kuala Lumpur</option>
-                      <option value="Labuan">Labuan</option>
-                      <option value="Malacca">Malacca</option>
-                      <option value="Negeri Sembilan">Negeri Sembilan</option>
-                      <option value="Pahang">Pahang</option>
-            <option value="Penang">Penang</option>
-            <option value="Perak">Perak</option>
-            <option value="Perlis">Perlis</option>
-            <option value="Putrajaya">Putrajaya</option>
-            <option value="Sabah">Sabah</option>
-            <option value="Sarawak">Sarawak</option>
-            <option value="Selangor">Selangor</option>
-            <option value="Terengganu">Terengganu</option>
-                    </select></td>
-    <td>Test Type</td>
-    <td><select name="t_type" class="tb3" required>
-                      <option value="" selected>Type of Test</option>
-                      <?php $test =mysqli_query($conn,"SELECT * FROM test_type");
-							while($row=mysqli_fetch_array($test))
-							{ ?>
-      						<option value="<?php echo $row['id'];?>"><?php echo $row['test_type'];?></option>
-     						 <?php
-							}
-						?>
-                    </select></td>
-  </tr>
-  <tr>
-    <td>Test Location</td>
-    <td><select name="t_location" class="tb3" required>
-                      <option value="" selected>Test Location</option>
-                      <option value="Walk-Thru">RM Walk-Thru</option>
-                      <option value="SC-Walk-Thru">SC-Walk-Thru</option>
-                      <option value="KD-Walk-Thru">KD-Walk-Thru</option>
-                      <option value="Onsite">Onsite</option>
-                      <option value="RT-Walk-Thru">RT-Walk-Thru</option>
-                      <option value="AG-Walk-Thru">AG-Walk-Thru</option>
-                      <option value="CH-Walk-Thru">CH-Walk-Thru</option>
-                      <option value="ADLS-Walk-Thru">ADLS-Walk-Thru</option>
-                    </select></td>
-    <td>Cash</td>
-    <td><input type="text" class="tb1" id="text" placeholder="RM000" name="rm_cash"></td>
-  </tr>
-  <tr>
-    <td>Mode of Payment</td>
-    <td><select onChange="mode(this.value);"  name="p_mode" class="tb1" required="">
-      <option value="">Select</option>
-      <?php $query =mysqli_query($conn,"SELECT * FROM pay_mode");
-while($row=mysqli_fetch_array($query))
-{ ?>
-      <option value="<?php echo $row['id_mode'];?>"><?php echo $row['mode'];?></option>
-      <?php
-}
-?>
-    </select></td>
-    <td>Select List :</td>
-    <td> 	<select name="p_id" id="list" class="tb1" required="">
-      		<option value="">Select</option>
-    		</select>           </td>
-  </tr>
-  <tr>
-    <td>Reference NO</td>
-    <td><input type="text" class="tb1" id="referenceno" placeholder="Reference No" name="p_ref" required /></td>
-    <td>RM</td>
-    <td><input type="text" class="tb1" id="text2" placeholder="RM000" name="rm_online" required /></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <!--<td>Date</td>
-    <td><input type="date" id="birthdaytime" name="reg_date" class="tb3" required>!-->
-           <input type="hidden" name="author" value="<?php echo $auth; ?>">
- <?php
-//echo  date("Y-m-d");
-$sy_date = date("Y-m-d");
 
-?>
-           <input type="hidden" name="reg_date" value=""></td>
-           <input type="hidden" name="sys_date" value="<?php echo $sys_date; ?>"></td>
-  </tr>
-  <tr>
-    <td colspan="2">&nbsp;</td>
-    <td colspan="2"><input type="submit" name="submit" value="Register" class="tb4"></td>
-  </tr>
-</table>
+<!-- Bootstrap icons cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<form action="" method="post" name="form1" id="form1">
+<section class="">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    <table class="table table-responsive table-bordered">
+      <thead>
+        <tr class="text-center fs-4">
+          <th scope="row" colspan="2" class="bg-light text-primary">Enter details to register new Patient</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <th scope="col" class="animate__animated animate__fadeInLeft"><input type="text" class="form-control" name="f_name" placeholder="Enter First Name" id="" required></th>
+          <th scope="col" class="animate__animated animate__fadeInRight"><input type="text" class="form-control" name="f_name" placeholder="Enter Last Name" id="" required></th>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft">
+            <select class="form-select" aria-label="Default select example" name="gender" class="tb3" required>
+              <option selected>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </td>
+          <td class="animate__animated animate__fadeInRight"><input type="date" id="birthdaytime" name="dob" value="dd-mm-yyyy" class="form-control" required></td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><input type="text" class="form-control" id="icno" placeholder="IC / Passport No" name="icno" required>
+          <input type="hidden" name="validation" value="<?php echo $validate; ?>"></td>
+          <td class="animate__animated animate__fadeInRight"><input type="text" class="form-control" id="phno" placeholder="Phone Number" name="phno" required></td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><input type="email" class="form-control" id="email" placeholder="Email ID" name="email"></td>
+          <td class="animate__animated animate__fadeInRight"><input type="text" class="form-control" id="postcode" placeholder="Post Code" name="pincode"></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="animate__animated animate__fadeInLeft"><textarea class="form-control" rows="1" placeholder="Address Line 1" id="comment" name="address" ></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="animate__animated animate__fadeInRight"><textarea class="form-control" rows="1" placeholder="Address Line 2" id="comment" name="street" ></textarea></td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><select name="state" class="form-control" required>
+                  <option value="" selected>Select State</option>
+                  <option value="Johor">Johor</option>
+                  <option value="Kedah">Kedah</option>
+                  <option value="Kelantan">Kelantan</option>
+                  <option value="Kuala Lumpur">Kuala Lumpur</option>
+                  <option value="Labuan">Labuan</option>
+                  <option value="Malacca">Malacca</option>
+                  <option value="Negeri Sembilan">Negeri Sembilan</option>
+                  <option value="Pahang">Pahang</option>
+                  <option value="Penang">Penang</option>
+                  <option value="Perak">Perak</option>
+                  <option value="Perlis">Perlis</option>
+                  <option value="Putrajaya">Putrajaya</option>
+                  <option value="Sabah">Sabah</option>
+                  <option value="Sarawak">Sarawak</option>
+                  <option value="Selangor">Selangor</option>
+                  <option value="Terengganu">Terengganu</option>
+                </select>
+          </td>
+          <td><select name="t_type" class="form-control" required>
+                              <option value="" selected>Type of Test</option>
+                              <?php $test =mysqli_query($conn,"SELECT * FROM test_type");
+                      while($row=mysqli_fetch_array($test))
+                      { ?>
+                          <option value="<?php echo $row['id'];?>"><?php echo $row['test_type'];?></option>
+                        <?php
+                      }
+                    ?></select>
+          </td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><select name="t_location" class="form-control" required>
+                            <option value="" selected>Test Location</option>
+                            <option value="Walk-Thru">RM Walk-Thru</option>
+                            <option value="SC-Walk-Thru">SC-Walk-Thru</option>
+                            <option value="KD-Walk-Thru">KD-Walk-Thru</option>
+                            <option value="Onsite">Onsite</option>
+                            <option value="RT-Walk-Thru">RT-Walk-Thru</option>
+                            <option value="AG-Walk-Thru">AG-Walk-Thru</option>
+                            <option value="CH-Walk-Thru">CH-Walk-Thru</option>
+                            <option value="ADLS-Walk-Thru">ADLS-Walk-Thru</option>
+                          </select>
+          </td>
+          <td class="animate__animated animate__fadeInRight"><input type="text" class="form-control" id="text" placeholder="Enter Cash / RM000" name="rm_cash"></td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><select onChange="mode(this.value);"  name="p_mode" class="form-control" required="">
+            <option selected value="">Payment Mode</option>
+            <?php $query =mysqli_query($conn,"SELECT * FROM pay_mode");
+            while($row=mysqli_fetch_array($query))
+            { ?>
+            <option value="<?php echo $row['id_mode'];?>"><?php echo $row['mode'];?></option>
+            <?php
+            }
+            ?>
+            </select>
+          </td>
+          <td class="animate__animated animate__fadeInRight"> <select name="p_id" id="list" class="form-control" required="">
+                <option value="">Select</option>
+              </select>           
+            </td>
+        </tr>
+        <tr>
+          <td class="animate__animated animate__fadeInLeft"><input type="text" class="form-control" id="referenceno" placeholder="Reference No" name="p_ref" required /></td>
+          <td class="animate__animated animate__fadeInRight"><input type="text" class="form-control" id="text2" placeholder="RM000" name="rm_online" required /></td>
+        </tr>
+        <tr>
+                <input type="hidden" name="author" value="<?php echo $auth; ?>">
+          <?php
+          date_default_timezone_set("Asia/Kuala_Lumpur");
+          ?>
+          <input type="hidden" name="reg_date" value=""></td>
+          <input type="hidden" name="sys_date" value="<?php echo date('Y-m-d'); ?>"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" name="submit" value="Register" class="btn btn-success"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <?php
 

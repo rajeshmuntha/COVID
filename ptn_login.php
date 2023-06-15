@@ -39,11 +39,11 @@ window.history.forward();
 						<form method="POST">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control bg-light" id="floatingInput" name="icno" placeholder="Enter IC / Passport No." required/>
-							<label for="floatingInput">User ID</label>
+							<label for="floatingInput">IC / Passport No</label>
 						</div>
 						<div class="form-floating">
 							<input type="password" class="form-control bg-light" id="floatingPassword" name="validation" placeholder="Enter Registration No." required/>
-							<label for="floatingPassword">Password</label>
+							<label for="floatingPassword">Registration No.</label>
 						</div>
 						<div class="pt-3 mt-0 ">
                   <div class="form-check form-switch">

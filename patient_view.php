@@ -3,6 +3,9 @@
 include_once("conn.php");
 error_reporting( error_reporting() & ~E_NOTICE )
 ?> 
+
+<link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
+
 <table width="943" border="0" align="center">
    <tr>
    <td align="right">

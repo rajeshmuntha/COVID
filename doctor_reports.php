@@ -19,38 +19,20 @@ function printContent(el){
  <!DOCTYPE html>  
  <html>  
       <head>  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
            <title></title>  
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	width: 180px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
+
       <body>  
             
+      <section class="">
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">
                 <form action="" method="POST">
-                <table width="900" align="center">
-                <tr><td><select name="p_id" class="tb1" required>
-                   		 	<option value="">Select Panel</option>
+                <table class=" table table-hover table-bordered text-center align-middle ">
+                  <thead>
+                    <tr><th colspan="4" class="bg-light text-primary fs-4 text-center">Doctor Reports</th></tr>
+                  </thead>
+                <tr><td><select class="form-control" name="p_id" required>
+                   		 	<option selected value="">Select Panel</option>
                 			 	<?php
 					  			 	$type = mysqli_query($conn, "SELECT * FROM panel");
 					   				 while ($row = mysqli_fetch_array($type)) 
@@ -59,24 +41,24 @@ function printContent(el){
                          	<option value="<?php echo $row['p_id'];?>"><?php echo $row['mode'];}?></option>             
 				 		</select>	
                     </td>
-                    <td> <input type="date" name="from_date" id="from_date" class="tb1" placeholder="From Date" required/> </td>
-                    <td> <input type="date" name="to_date" id="to_date" class="tb1" placeholder="To Date" required/> </td>
-                    <td><input type="submit" class="tb1" name="submit" value="Generate Invoice"> </td> 
+                    <td> <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" required/> </td>
+                    <td> <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" required/> </td>
+                    <td><input type="submit" class="btn btn-warning" name="submit" value="Generate Invoice"> </td> 
                   </tr>
                 
                 </table>
                 </form> 
-                             
-                <br />  
-                  
-           </body>  
- </html>  
+  </div>
+      </section>
+
  
-<table align="center">
+      <section class="pt-5">
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">
+                <table class="table table-bordered text-center align-middle ">
 <tr>
 <td>
 <div id="div1">
-<style>
+<!-- <style>
 #tb {
   font-family: "cambria";
   border-collapse: collapse;
@@ -91,7 +73,6 @@ function printContent(el){
 
 #tb tr:nth-child(even){background-color: #f2f2f2;}
 
-/*#tb tr:hover {background-color: #ddd;}*/
 
 #tb th {
   padding-top: 12px;
@@ -101,7 +82,7 @@ function printContent(el){
   color: white;
   font-size: 12px;
 }
-</style>
+</style> -->
 <?php  
   $i=1;
   
@@ -114,16 +95,15 @@ function printContent(el){
       $result = mysqli_query($conn, $query);  
      ?>
        		    
-              <table align="center" id="tb" border='1'>
+              <table class="table table-bordered animate__animated animate__bounceInDown" id="tb">
               <tr>
-            <td colspan="4" style="text-align:left; color:blue; font-size:100%;"><strong> KLINIK SP GROUP CARE<span style="float:right;">INVOICE
-        </strong>
-            </td>
+            <td colspan="3" class="float-start text-primary fs-5"> KLINIK SP GROUP CARE</td>
+            <td class="float-right text-primary">INVOICE</td>
             </tr> 
             <tr>
             <td> 2A-1,7,JALAN RAWANG MUTIARA 3,RAWANG MUTIARA BUSINESS CENTER</td>
             
-            <td width="150" rowspan="4" align="center"><img src="img/Sp-cov-19-logo care.png" width="100" height="100"></td>
+            <td width="150" rowspan="4" align="center"><img src="img/Sp-cov-19-logo care1.png" width="100" height="auto"></td>
             </td></tr>
             <tr>
             <td> 48000 RAWANG, SELANGOR, MALAYSIA</td>
@@ -146,10 +126,7 @@ function printContent(el){
 							
 						}
 			   ?>
-            
-            
-            
-            <td colspan="4" style="text-align:left;"> NAME : <?php echo $name;?><span style="float:right;">Bill Date:<?php echo date("Y.m.d");?></td>
+            <td colspan="4" style="text-align:left;"> NAME : <?php echo $name;?><span style="float:right;">Bill Date : &nbsp; <?php echo date("Y.m.d");?></td>
             </tr>
             <tr>
             <?php 
@@ -240,20 +217,20 @@ function printContent(el){
             <td colspan="4">COMMENTS:</td>       
             </tr>
             <tr>
-            <td colspan="4">1.Total Payment Due in 30 days. 2. Please include invoice number on your check. 3.Make all payments to your company name.</td>       
+            <td colspan="4" class="text-muted">1.Total Payment Due in 30 days. <br> 2. Please include invoice number on your check. <br> 3.Make all payments to your company name.</td>       
             </tr>
             </tr>
             </table> 
             <br>
-           <table align="center" id="tb" border='1'>  
+           <table id="tb" class="table table-bordered align-middle">  
                 <tr>  
-                     <th width="20" align="center">SL.NO</th>  
-                     <th width="100">ICNO</th>  
-                     <th width="150">NAME</th>  
-                     <th width="50">GENDER</th> 
-                     <th width="50">TEST MODE</th>  
-                     <th width="50">TEST COST</th>
-					 <th width="50">DATE</th>  
+                     <th class="bg-light" width="20" align="center">SL.NO</th>  
+                     <th class="bg-light" width="100">ICNO</th>  
+                     <th class="bg-light" width="150">NAME</th>  
+                     <th class="bg-light" width="50">GENDER</th> 
+                     <th class="bg-light" width="50">TEST MODE</th>  
+                     <th class="bg-light" width="50">TEST COST</th>
+					           <th class="bg-light" width="50">DATE</th>  
                 </tr>  
       <?php 
       if(mysqli_num_rows($result) > 0)  
@@ -303,17 +280,19 @@ function printContent(el){
            ';  
       }  
       $output .= '</table>';  
-      echo $output;  
+      echo $output; 
+       
  } 
   
  ?>
   </div>
  </td>
  </tr>
-  <tr>
+ <tr>
  <td>
- <button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
+ <button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report</button></div>
  </td>
- </tr>
+</tr>
  </table>
- 
+</div>
+      </section>

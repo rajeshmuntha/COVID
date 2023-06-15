@@ -14,45 +14,23 @@ if($_SESSION["islogin"] == 'N'){
 
 <head>
 <script src="jquery-3.2.1.min.js"></script>
- 
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
 
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
 </head>
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
     <div class="outer-scontainer">
-        <div class="row" align='center'>
-        <table width="1100">
+    <section class="pt-4 ">
+  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+        <table class="table table-bordered table-hover">
         <tr>
-          <td align="center"><strong>PATIENT RECORDS</strong></td>        
+          <td align="center" class="bg-light text-primary fs-4"><strong>Patient Records</strong></td>        
         <tr>
         	<td align="right">
            <form action="patient_data_level_II_super_admin_res.php? = Results" method="post" >
                Patient IC/Passport No: 
                  <input type="text" class="tb1" name="icno" placeholder="Enter IC/Passport No..">
-                <input type="submit" class="tb2" name="submit" value="Search">
+                <input type="submit" class="btn btn-secondary" name="submit" value="Search">
             </form>
             </td>
         <tr>
@@ -63,44 +41,19 @@ if($_SESSION["islogin"] == 'N'){
             $sqlSelect = mysqli_query($conn, "SELECT * FROM patient where status ='0' order by id desc LIMIT 2000");
 			//$sqlSelect = mysqli_query($conn, "SELECT * FROM patient where icno = $icno group by icno LIMIT 10");
                ?>
-   <style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1100px;
-   }
-
-#des td {
-  border: 1px solid #09F;
-  padding: 6px;
-  font-size: 14px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>               
-            <table align='center' id="des" border="1" width="1200">
+             
+            <table id="des" class="table table-bordered table-hover text-center align-middle mt-3 animate__animated animate__bounceInDown">
             <thead align='center'>
                 <tr>
-                	<th width='40'>No.</th>
-                    <th width='100'>IC/Passport No.</th>
-                    <th width='280'>Patient Name</th>
-                    <th width='100'>Test Obtained</th>
-                    <th width='80'>Reg. No.</th>
-                    <th width='100'>Test Location</th>
-                    <th width='80'>DOR</th>
-					<th width="80">Kit Status</th>
-                    <th width='60'>Issue Kit</th>
+                	<th class="align-middle bg-light" width='40'>No.</th>
+                    <th class="align-middle bg-light" width='100'>IC/Passport No.</th>
+                    <th class="align-middle bg-light" width='280'>Patient Name</th>
+                    <th class="align-middle bg-light" width='100'>Test Obtained</th>
+                    <th class="align-middle bg-light" width='80'>Reg. No.</th>
+                    <th class="align-middle bg-light" width='100'>Test Location</th>
+                    <th class="align-middle bg-light" width='80'>DOR</th>
+					<th class="align-middle bg-light" width="80">Kit Status</th>
+                    <th class="align-middle bg-light" width='60'>Issue Kit</th>
                     
                 </tr>
             </thead>
@@ -132,14 +85,8 @@ if($_SESSION["islogin"] == 'N'){
                             break;
                             case 7: echo"Influenza A & B";
                             break;
-
                     }
-                    
-
-
-
-
-               ?>
+                  ?>
                	
                </td>
                 <td><?php  echo $row['validation']; ?></td>
@@ -153,9 +100,8 @@ if($_SESSION["islogin"] == 'N'){
 						case 1: echo "<font color='green'>ATTENDED</font>";
 								break;
 					}
-					
 					?></td>
-                   <td><a href="kit_issue_super_admin.php?id=<?php echo $row["id"]; ?>"><button><img src="img/correct.gif" width="20" height="20"></button></td>
+                   <td><a href="kit_issue_super_admin.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-outline-success">Approve</button></td>
                 </tr>
                     <?php
 					$i++;

@@ -12,66 +12,21 @@ location.replace("logout.php? = Invalid Login");
  </script>';
 }
 ?>
-<style type="text/css">
- 
-.tb3 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	 height:30px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
-<style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1000px;
-   }
 
-#des td {
-  border: 1px solid #09F;
-  padding: 9px;
-  font-size: 14px;
- }
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 16px;
-  padding-bottom: 10px;
-  text-align: center;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>
-<table width="1000" border='0' align="center">
+<section class="pt-4 ">
+  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+<table class="table table-bordered">
         <tr>
-          <td align="center"><strong>PATIENT REPORTS</strong></td>        
+          <th class="bg-light text-center text-primary fs-4">Patient Reports</th>        
         <tr>
         	<td align="right">
            <form action="ptn_reports_super_admin_res.php? = Reports" method="post" >
                Patient Uniq ID No: 
                  <input type="text" class="tb3" name="validation" placeholder="Enter Uniq ID" required="">
-                <input type="submit" class="tb2" name="submit" value="Search">
+                <input type="submit" class="btn btn-secondary" name="submit" value="Search">
             </form>
             </td>
         <tr>
@@ -104,16 +59,15 @@ if (mysqli_num_rows($res) > 0)
 		}
 						
 ?>
-<br>
 
-<table width="1000" id="des" border="1" align="center" bgcolor="#FFFFFF">
+<table id="des" class="table table-bordered table-hover text-center align-middle mt-3">
 
   <tr>
-    <td height="35" colspan="3" align="left" valign="middle">Name: <?php echo $f_name.'&nbsp;'.$l_name;?></td>
+    <td height="35" colspan="3" align="left" valign="middle" class="bg-light"><strong>Name :</strong> <?php echo $f_name.'&nbsp;'.$l_name;?></td>
   </tr>
   <tr>       
-    <td height="35"width="500">MRN: <?php echo $icno;?></td>
-    <td>GENDER: <?php echo strtoupper($gen);?></td>
+    <td height="35"width="500"><strong>MRN :</strong> <?php echo $icno;?></td>
+    <td><strong>Gender :</strong> <?php echo strtoupper($gen);?></td>
   </tr>
   <tr>
   <?php
@@ -121,12 +75,12 @@ if (mysqli_num_rows($res) > 0)
 	$diff = date_diff(date_create($dob), date_create($today));
 ?>
   
-    <td height="35">AGE: <?php echo ''.$diff->format('%y');?></td>
-    <td>DOB: <?php echo $dob;?></td>
+    <td height="35"><strong>Age :</strong> <?php echo ''.$diff->format('%y');?></td>
+    <td><strong>DOB :</strong> <?php echo $dob;?></td>
   </tr>
   <tr>
-    <td height="35">NATIONAL ID:<?php echo $icno;?> </td>
-    <td>DOCTOR: 
+    <td height="35"><strong>National ID :</strong><?php echo $icno;?> </td>
+    <td><strong>Doctor :</strong>
       <?php
       $doc=mysqli_query($conn,"select * from results where r_id='".$p_id."'");
             while($row=mysqli_fetch_array($doc))
@@ -145,13 +99,13 @@ if (mysqli_num_rows($res) > 0)
     </td>
   </tr>
 </table>
-<br>
-<table width="1000" id="des" border="1" align="center" bgcolor="#FFFFFF">
+
+<table id="des" class="table table-bordered table-hover text-center align-middle mt-3">
   <tr>       
-    <td height="35"width="250" align="center">TEST ID</td>
-    <td height="35"width="250" align="center">TEST OBTAINED</td>
-    <td height="35"width="250" align="center">COLLECTION DATE </td>
-    <td height="35"width="250" align="center">TEST STATUS</td>
+    <td height="35"width="250" align="center" class="bg-light fw-bold">Test ID</td>
+    <td height="35"width="250" align="center" class="bg-light fw-bold">Test Obtained</td>
+    <td height="35"width="250" align="center" class="bg-light fw-bold">Collection Date </td>
+    <td height="35"width="250" align="center" class="bg-light fw-bold">Test Status</td>
 	<!--<td height="35"width="250" align="center">TEST RESULT</td>!-->
   </tr>
   <tr>
@@ -210,13 +164,15 @@ function printContent(el){
 	document.body.innerHTML = restorepage;
 }
 </script>
-<table width="1000" align="center">
+<table class="table">
 <tr>
 <td align="right">
-<button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
+<button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report</button></div>
 </td>
 </tr>
 </table>
+
+
  <div id="div1">
 <style type="text/css">
 .tb1{

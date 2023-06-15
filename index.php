@@ -15,14 +15,19 @@ window.history.forward();
 
 <link rel= "stylesheet" href="./css/style-login.css" />
 <!-- Google Fonts cdn -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
 <!-- Bootstrap 5.3 cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- Bootstrap icons cdn -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-
+<style>
+	*{
+		box-sizing: border-box;
+		font-family: 'Barlow', sans-serif;
+	}
+</style>
 </head>
 <body>
 	<section class="container-fluid pt-5 bg-img">
@@ -147,6 +152,14 @@ if(isset($_POST["submit"]))
 			</div>
 		</div>
 	</section>
+
+	
+<div class="row mt-2 fixed-bottom">
+  <div class="col-lg-12 text-center">
+    <p style="font-size: 14px;" class=" test-muted">Copyright &#169; 2019-2023.
+    <a class="text-decoration-none" href="https://sptechhub.com/" target="_blank"> SPTECHHUB</a></p>
+  </div>
+</div>
   
 
 

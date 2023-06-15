@@ -197,20 +197,27 @@ $diff = date_diff(date_create($dob), date_create($today));
   ?> </td>
     <td>
 			<form method="post"> 
-        <input type="submit" name="report" class="btn btn-secondary btn-sm" value="Report" /> 
+        <input type="button" name="report" class="btn btn-outline-secondary btn-sm" value="Report" data-bs-toggle="modal" data-bs-target="#exampleModal" /> 
       </form>
 		</td>
   </tr>
-	<tr>
-		<td colspan="5" align="right"><button class="btn btn-outline-primary btn-sm" onClick="printContent('div1')">Print Report</button></div>
-		</td>
-	</tr>
 	</tbody>
 </table>
 </div>
 
 <br>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header text-center bg-light">
+        <h1 class="modal-title text-primary fs-4" id="exampleModalLabel">Test Report</h1>
+        <button type="button" class="btn-close text-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 
 <div id="div1">
 <style type="text/css">
@@ -1918,6 +1925,18 @@ INFLUENZA A or B present in human nasopharynx.";
 		  </tr>
 		  
 		</table>
+
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-outline-primary" onClick="printContent('div1')">Print Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 		</body>
 </html>

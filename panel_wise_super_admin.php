@@ -20,79 +20,36 @@ function printContent(el){
  <html>  
       <head>  
            <title></title>  
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	width: 180px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
+      <!-- Bootstrap icons cdn -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
       <body>  
-            
+      <section class="">
+  <div class="container p-4 shadow-lg rounded rounded-4">
                 <form action="" method="POST">
-                <table width="900" class="super-admin-panel-wise-data">
+                  <table class="table-responsive table table-hover table-bordered text-center align-middle ">
+                  <thead>
+        <tr><th colspan="3" class="bg-light text-primary fs-4">Panel Wise Registrations</th></tr>
+    </thead>
                 <tr>
-                    <td> <input type="date" name="from_date" id="from_date" class="tb1" placeholder="From Date" required/> </td>
-                    <td> <input type="date" name="to_date" id="to_date" class="tb1" placeholder="To Date" required/> </td>
-                    <td><input type="submit" class="tb1" name="submit" value="Generate Report"> </td> 
+                    <td> <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" required/> </td>
+                    <td> <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" required/> </td>
+                    <td><input type="submit" class="btn btn-outline-primary" name="submit" value="Generate Report"> </td> 
                   </tr>
                 
                 </table>
                 </form> 
-                             
-                <br />  
-                  
-           </body>  
- </html>  
+  </div>
+      </section>
+
  
-<table align="center">
+      <section class="pt-5">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    
+<table class="table-responsive table table-hover table-bordered text-center align-middle  animate__animated animate__bounceInDown">
 <tr>
 <td>
 <div id="div1">
-<style>
-#tb {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 900px;
-}
-
-#tb td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 14px;
-}
-
-#tb tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#tb tr:hover {background-color: #ddd;}*/
-
-#tb th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>
 <?php  
   $i=1;
   
@@ -107,24 +64,21 @@ function printContent(el){
        		    
               
             <br>
-           <table align="center" id="tb" border='1'> 
-           <tr>
-            <td colspan='9' align="center"><strong>PANEL WISE REPORTS </strong>
-            </td> 
+            <table class="table-responsive table table-hover table-bordered text-center align-middle ">
             <tr>
-            <td colspan='9'>Test Results Duration : <?php echo $_POST["from_date"].' to '.$_POST["to_date"]; ?>
-            </td>
+            <th colspan='9' class="bg-light text-primary fs-5">Panel Wise Registrations <br> Report Results Duration : <?php echo $_POST["from_date"].' to '.$_POST["to_date"]; ?>
+            </th>
              </tr>
                 <tr>  
-                     <th width="20" align="center">SL.NO</th>  
-                     <th width="100" align="center">Test Location</th>  
-                     <th width="100" align="center">rT-PCR</th>  
-                     <th width="100" align="center">RTK-Antigen</th> 
-                     <th width="100" align="center">RTK-Antigen<br>(PERKESO)</th>  
-                     <th width="100" align="center">Antibody <br>IGM/IGG</th>
-                     <th width="100" align="center">Rapid PCR <br>/Molecular</th>
-                     <th width="100" align="center">SALIVA PCR</th>
-					 <th width="100" align="center">Total <br>Registrations</th>  
+                     <th>SL.NO</th>  
+                     <th>Test Location</th>  
+                     <th>rT-PCR</th>  
+                     <th>RTK-Antigen</th> 
+                     <th>RTK-Antigen<br>(PERKESO)</th>  
+                     <th>Antibody <br>IGM/IGG</th>
+                     <th>Rapid PCR <br>/Molecular</th>
+                     <th>SALIVA PCR</th>
+					          <th>Total <br>Registrations</th>  
                 </tr>  
       <?php 
       if(mysqli_num_rows($result) > 0)  
@@ -215,7 +169,7 @@ function printContent(el){
       {  
            $output .= '  
                 <tr>  
-                     <td colspan="9"><center>No Patient Records Found</center></td>  
+                     <td colspan="9" class="bg-danger text-white text-center align-middle">No Patient Records Found</td>  
                 </tr>  
            ';  
       }  
@@ -229,8 +183,11 @@ function printContent(el){
  </tr>
   <tr>
  <td>
- <button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
+ <button onClick="printContent('div1')" class="btn btn-outline-secondary">Print <i class="bi bi-printer"></i></button></div>
  </td>
  </tr>
  </table>
+</div>
+      </section>
+
  
