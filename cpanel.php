@@ -49,7 +49,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+                            <li class="nav-item animate__animated animate__bounceInDown">
                             <a class="nav-link active" aria-current="page" href="cpanel.php? = Cpanel Home Page">Home</a>
                             </li>
                             <li class="nav-item">
@@ -62,7 +62,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Registrations
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
                                 <li><a class="dropdown-item" href="day_wise_super_admin.php? = Day wise reports for super admin">Day Wise</a></li>
                                 <li><a class="dropdown-item" href="panel_wise_super_admin.php">Panel Wise</a></li>
                             </ul>
@@ -71,7 +71,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Reports
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
                                 <li><a class="dropdown-item" href="doctor_reports.php? = Panel Reports Super Admin">Doctor Wise</a></li>
                                 <li><a class="dropdown-item" href="report_super_admin_staff_wise.php? = Registration Date xrd336efe">Employee Wise</a></li>
                                 <li><a class="dropdown-item" href="report_super_admin_day_wise.php? = Patient Reports Super Admin">Test Wise</a></li>
@@ -83,7 +83,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Patient
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
                                 <li><a class="dropdown-item" href="new_patient_super_admin.php? = Patient Creation">New Patient</a></li>
                                 <li><a class="dropdown-item" href="patient_data_level_super_admin.php? = Patient Details">Patient Details</a></li>
                                 <li><a class="dropdown-item" href="update_del_super_admin.php? = Registration Date xrd336efe">Update / Delete</a></li>                                
@@ -113,8 +113,8 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                                   }
                               ?>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="reset.php?=Passwor Reset">Change Password</a></li>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="reset_s_admin.php?=Passwor Reset">Change Password</a></li>
                                 <li><a class="dropdown-item" href="database-backup.php? = Database BackUp">DB Backup</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
@@ -130,8 +130,8 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
   <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
     <table class=" table table-hover table-bordered rounded rounded-2">
       <thead>
-        <tr class="fs-5">
-          <th scope="col" colspan="4" class="bg-light text-primary">
+        <tr class="">
+          <th scope="col" colspan="4" class="bg-light text-primary fs-4">
             <?php
             include_once "time.php"; ?>
           </th>
@@ -186,9 +186,12 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
   </div>
 </section>
 
+
+
+
 <div class="row mt-2 fixed-bottom">
   <div class="col-lg-12 text-center">
-    <p style="font-size: 12px;" class=" test-muted">Copyright &#169; 2019-2023.
+    <p style="font-size: 14px;" class=" test-muted">Copyright &#169; 2019-2023.
     <a class="text-decoration-none" href="https://sptechhub.com/" target="_blank"> SPTECHHUB</a></p>
   </div>
 </div>

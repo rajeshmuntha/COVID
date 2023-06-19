@@ -105,7 +105,7 @@ body
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Patient
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
                                 <li><a class="dropdown-item" href="new_patient_level_1.php? = New Patient Creation">Add New Patient</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="patient_data_level_I.php? = Patient Details">Patient Details</a></li>
@@ -123,7 +123,7 @@ body
 							echo "Hi..".$_SESSION['user_id'];
 							?>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
                                 <li><a class="dropdown-item" href="#">Update Profile</a></li>
                                 <li><a class="dropdown-item" href="reset.php?=Password Reset">Change Password</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -138,7 +138,7 @@ body
 
 
 <section class="pt-5 mt-5 animate__animated animate__backInRight">
-  <div class="container p-4 shadow-lg rounded rounded-4">
+  <div class="container mt-5 p-4 shadow-lg rounded rounded-4">
     <table class="table-responsive table table-hover table-bordered">
       <thead>
         <tr class="fs-5">

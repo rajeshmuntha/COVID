@@ -13,14 +13,104 @@ location.replace("logout.php? = Invalid Login");
 }
 ?>
 
-  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<section class="pt-4 ">
+		<header>
+            <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item  ">
+                            <a class="nav-link " aria-current="page" href="cpanel.php? = Cpanel Home Page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="new_staff_super_admin.php?=new staff">Staff</a>
+                            </li>                            
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="queries_super_admin.php? = All Queries for Employees">Emp. Queries</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Registrations
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="day_wise_super_admin.php? = Day wise reports for super admin">Day Wise</a></li>
+                                <li><a class="dropdown-item" href="panel_wise_super_admin.php">Panel Wise</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reports
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="doctor_reports.php? = Panel Reports Super Admin">Doctor Wise</a></li>
+                                <li><a class="dropdown-item" href="report_super_admin_staff_wise.php? = Registration Date xrd336efe">Employee Wise</a></li>
+                                <li><a class="dropdown-item" href="report_super_admin_day_wise.php? = Patient Reports Super Admin">Test Wise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="reports_panel.php? = Panel Reports Super Admin">Invoice</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="new_patient_super_admin.php? = Patient Creation">New Patient</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_super_admin.php? = Patient Details">Patient Details</a></li>
+                                <li><a class="dropdown-item" href="update_del_super_admin.php? = Registration Date xrd336efe">Update / Delete</a></li>                                
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="patient_data_level_II_super_admin.php? = Sample Kit Validate">Kit Validate</a></li>
+                                <li><a class="dropdown-item active" href="ptn_reports_super_admin.php? = Patient Reports">Test Results</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="reset_s_admin.php?=Passwor Reset">Change Password</a></li>
+                                <li><a class="dropdown-item" href="database-backup.php? = Database BackUp">DB Backup</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header> 
+
+<section class="mt-5 ">
   <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
 <table class="table table-bordered">
         <tr>
-          <th class="bg-light text-center text-primary fs-4">Patient Reports</th>        
+          <th class="bg-light text-center text-primary fs-4">PATIENT REPORTS &nbsp; <i class="bi bi-file-medical-fill"></i></th>        
         <tr>
         	<td align="right">
            <form action="ptn_reports_super_admin_res.php? = Reports" method="post" >
@@ -60,7 +150,7 @@ if (mysqli_num_rows($res) > 0)
 						
 ?>
 
-<table id="des" class="table table-bordered table-hover text-center align-middle mt-3">
+<table id="des" class="table table-bordered table-hover text-center align-middle mt-3  animate__animated animate__bounceInDown">
 
   <tr>
     <td height="35" colspan="3" align="left" valign="middle" class="bg-light"><strong>Name :</strong> <?php echo $f_name.'&nbsp;'.$l_name;?></td>
@@ -100,7 +190,7 @@ if (mysqli_num_rows($res) > 0)
   </tr>
 </table>
 
-<table id="des" class="table table-bordered table-hover text-center align-middle mt-3">
+<table id="des" class="table table-bordered table-hover text-center align-middle mt-3 animate__animated animate__bounceInDown">
   <tr>       
     <td height="35"width="250" align="center" class="bg-light fw-bold">Test ID</td>
     <td height="35"width="250" align="center" class="bg-light fw-bold">Test Obtained</td>
@@ -155,6 +245,7 @@ if (mysqli_num_rows($res) > 0)
    
   </tr>
 </table>
+
 <script>
 function printContent(el){
 	var restorepage = document.body.innerHTML;
@@ -166,37 +257,14 @@ function printContent(el){
 </script>
 <table class="table">
 <tr>
-<td align="right">
-<button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report</button></div>
+<td align="center">
+<button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report <i class="bi bi-printer"></i></button></div>
 </td>
 </tr>
 </table>
 
 
  <div id="div1">
-<style type="text/css">
-.tb1{
-	/*width: 800px;*/
-	border-collapse: collapse;
-	height: 20px;
-	text-align: left;
-	font-family: "cambria";
-	font-size: 15px;
-	border:#4e95f4;
-	}
-	
-</style>
-<style type="text/css">
-.tb7{
-	width: 1000px;
-	height: 100px;
-	border-collapse: collapse;
-	
-	font-family: "Courier";
-	font-size: 16px;
-	border:#4e95f4;	
-	}
-</style>
 
 <br>
 
@@ -221,18 +289,17 @@ function printContent(el){
 				$regno = $row['validation'];
 				
 				echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
-			
+			echo"<tr>";
+		echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+		 echo" </tr>";
 		 echo"<tr>";
-		 echo"<td width='128'><b>Name </td>";
+		 echo"<td ><b>Name </td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
-		 echo"<td width='156'><b>Reg.No.</td>";
-		 echo"<td width='215'><b>: $regno</td>";
+		 echo"<td ><b>Reg.No.</td>";
+		 echo"<td ><b>: $regno</td>";
    		 echo"</tr>";
  		 echo" <tr>";
      	 echo"<td><b>IC No </td>";
@@ -262,28 +329,14 @@ function printContent(el){
  		  echo" </tr>";
 
 	      echo"<tr>";
-    	  echo"<td><strong>TEST</strong></td>";
-		  echo" <td><strong>RESULT</strong></td>";
-		  echo" <td><strong>FLAG</strong></td>";
-		  echo" <td><strong>UNIT</strong></td>";
-		  echo" <td><strong>REFERENCERANGE</strong></td>";
-		  echo"<td>&nbsp;</td>";
+    	  echo"<td class='bg-light'><strong>TEST</strong></td>";
+				echo" <td class='bg-light'><strong>RESULT</strong></td>";
+				echo" <td class='bg-light'><strong>FLAG</strong></td>";
+				echo" <td class='bg-light'><strong>UNIT</strong></td>";
+				echo" <td class='bg-light'><strong>REFERENCE RANGE</strong></td>";
 	      echo"</tr>";
-	      echo"<tr>";
-    	  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-    	  echo" <td>&nbsp;</td>";
-		  echo" </tr>";
 		  echo" <tr>";
 		  echo"<td><strong>MOLECULER</strong></td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
 		  echo" </tr>";
 		  // echo"<tr>";
 			//echo" <td colspan='6'>&nbsp;</td>";
@@ -292,7 +345,7 @@ function printContent(el){
 			 echo"<td colspan='6'><strong>CORONAVIRUS  DISEASE 2019 RNA PCR</strong></td>";
 		  echo" </tr>";
 		    echo" <tr>";
-			 echo"<td colspan='3'>NatureofSpecimen</td>";
+			 echo"<td colspan='3'>Nature of Specimen</td>";
 			echo" <td colspan='3'>Nasopharyngeal and Oropharyngeal Swab</td>";
 		   echo"</tr>";
 		   echo"<tr>";
@@ -353,15 +406,8 @@ function printContent(el){
 		   echo"</tr>";
 		   echo"<tr>";
 			 echo"<td colspan='2'><strong>Test(s)requested:</strong> <strong>COVID19</strong></td>";
-			 echo"<td>&nbsp;</td>";
-			 echo"<td>&nbsp;</td>";
-			 echo"<td>&nbsp;</td>";
-			 echo"<td>&nbsp;</td>";
 		   echo"</tr>";
 		   echo"<tr>";
-			 echo"<td>&nbsp;</td>";
-			 echo"<td>&nbsp;</td>";
-			 echo"<td>&nbsp;</td>";
 			 echo"<td style='text-align:right' colspan='3'><strong>Report Completed, Please File.</strong></td>";
 		  echo" </tr>";
 		   echo"<tr>";
@@ -395,26 +441,18 @@ function printContent(el){
 				$regno = $row['validation'];
 			echo "<br>";
 			echo "<br>";
-			echo "<br>";
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
 			
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
-		 echo"<td width='128'><b>Name </td>";
-		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
-		 echo"<td width='156'><b>Reg.No.</td>";
-		 echo"<td width='215'><b>: $regno</td>";
+		 echo"<td><b>Name </td>";
+		 echo"<td ><b>: $f_name &nbsp; $l_name</td>";
+		 echo"<td ><b>Reg.No.</td>";
+		 echo"<td ><b>: $regno</td>";
    		 echo"</tr>";
  		 echo" <tr>";
      	 echo"<td><b>IC No </td>";
@@ -473,7 +511,7 @@ function printContent(el){
 			 echo"<td colspan='6'><p><strong>CORONAVIRUS  DISEASE 2019 RNA PCR</strong></p></td>";
 		  echo" </tr>";
 		  echo" <tr>";
-			 echo"<td colspan='3'>NatureofSpecimen</td>";
+			 echo"<td colspan='3'>Nature of Specimen</td>";
 			echo" <td colspan='3'>Nasopharyngeal and Oropharyngeal Swab</td>";
 		   echo"</tr>";
 		   echo"<tr>";
@@ -556,21 +594,13 @@ function printContent(el){
 				$ct_value = $row['ct_value'];
 			echo "<br>";
 			echo "<br>";
-			echo "<br>";
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered' >";
 			echo "<tr>";
 			echo "<td>";
 			
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name </td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -717,24 +747,6 @@ function printContent(el){
            <!-------------------------!-->  
           <?php
 		  echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-		    echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
 		{
 			$results = mysqli_query($conn, "SELECT * FROM results WHERE r_id = '".$p_id."' AND t_type = '2' && r_case ='1'");
 			while($row=mysqli_fetch_array($results))
@@ -742,19 +754,12 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered' >";
 			
 			
 		echo"<tr>";
-		echo"<td colspan='6'></td>";
+		echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
 		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -834,8 +839,8 @@ function printContent(el){
 			 echo"<td>&nbsp;</td>";
 		   echo"</tr>";
 		   echo"<tr>";
-			 echo"<td colspan='6'><p <align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical symptoms to SARS-CoV-2infection.</p><br>
-2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults andchildren.<br>
+			 echo"<td colspan='6' align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical symptoms to SARS-CoV-2infection.<br>
+2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults and children.<br>
 3.	Positive results do not rule out co-infections with other pathogens and negative results are not intended to rule in other coronavirus infection exceptSARS-CoV-1.<br>
 4.	More specific alternative diagnosis methods should be performed in order to obtain the confirmation of SARS-CoV-2 infection. Test results should be considered in conjunction with clinical history and other dataavailable.
 </td>";
@@ -883,20 +888,12 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
-		echo "<br>";	
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -976,8 +973,8 @@ function printContent(el){
 			 echo"<td>&nbsp;</td>";
 		   echo"</tr>";
 		   echo"<tr>";
-			 echo"<td colspan='6'><align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical   symptoms to SARS-CoV-2infection.<br>
-2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults andchildren.<br>
+			 echo"<td colspan='6' align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical   symptoms to SARS-CoV-2infection.<br>
+2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults and children.<br>
 3.	Positive results do not rule out co-infections with other pathogens and negative results are not intended to rule in other coronavirus infection exceptSARS-CoV-1.<br>
 4.	More specific alternative diagnosis methods should be performed in order to obtain the confirmation of SARS-CoV-2 infection. Test results should be considered in conjunction with clinical history and other dataavailable.
 </td>";
@@ -1025,19 +1022,12 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			
 			
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -1117,8 +1107,8 @@ function printContent(el){
 			 echo"<td>&nbsp;</td>";
 		   echo"</tr>";
 		   echo"<tr>";
-			 echo"<td colspan='6'><p <align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical symptoms to SARS-CoV-2infection.</p><br>
-2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults andchildren.<br>
+			 echo"<td colspan='6' align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical symptoms to SARS-CoV-2infection.<br>
+2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults and children.<br>
 3.	Positive results do not rule out co-infections with other pathogens and negative results are not intended to rule in other coronavirus infection exceptSARS-CoV-1.<br>
 4.	More specific alternative diagnosis methods should be performed in order to obtain the confirmation of SARS-CoV-2 infection. Test results should be considered in conjunction with clinical history and other dataavailable.
 </td>";
@@ -1166,20 +1156,12 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
-		echo "<br>";	
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -1260,8 +1242,8 @@ function printContent(el){
 			 echo"<td>&nbsp;</td>";
 		   echo"</tr>";
 		   echo"<tr>";
-			 echo"<td colspan='6'><align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical   symptoms to SARS-CoV-2infection.<br>
-2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults andchildren.<br>
+			 echo"<td colspan='6' align='justify'>1.	This test is intended as an aid to early diagnosis of SARS-CoV-2 infection in patient with clinical   symptoms to SARS-CoV-2infection.<br>
+2.	Children tend to shed virus for longer periods of time than adults, which may result in differences in sensitivity between adults and children.<br>
 3.	Positive results do not rule out co-infections with other pathogens and negative results are not intended to rule in other coronavirus infection exceptSARS-CoV-1.<br>
 4.	More specific alternative diagnosis methods should be performed in order to obtain the confirmation of SARS-CoV-2 infection. Test results should be considered in conjunction with clinical history and other dataavailable.
 </td>";
@@ -1308,19 +1290,10 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
-			
-			
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo "<table class='table text-center table-bordered'>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -1461,19 +1434,12 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='table text-center table-bordered'>";
 			
 			
-		echo"<tr>";
-		echo"<td colspan='6'></td>";
-		 echo" </tr>";
-   		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-	     echo"</tr>";
+			echo"<tr>";
+			echo"<td colspan='6' class='text-center fs-4 text-primary'>PATIENT REPORT</td>";
+			 echo" </tr>";
 	     echo"<tr>";
 		 echo"<td width='128'><b>Name</td>";
 		 echo"<td colspan='2'><b>: $f_name &nbsp; $l_name</td>";
@@ -1501,14 +1467,6 @@ function printContent(el){
 		 echo"<td><b>Reported</td>";
 		 echo"<td><b>: $d_date</td>";
   		 echo"</tr>";
-  		 echo"<tr>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-		 echo"<td>&nbsp;</td>";
-    	 echo" <td>&nbsp;</td>";
-    	 echo"<td>&nbsp;</td>";
-     	 echo"<td>&nbsp;</td>";
-  		 echo" </tr>";
    		 echo"<tr>";
      	 echo"<td style='vertical-align:top'><strong>Consultant:</strong></td>";
      	 echo"<td colspan='5'><p><strong>$doctor</strong><br>
@@ -1527,8 +1485,8 @@ function printContent(el){
 		  echo" <tr>";
 		  echo"<td colspan='3'><strong>COVID-19 / SARS CoV-2 MOLECULAR DETECTION </strong></td>";
 		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
-		  echo"<td>&nbsp;</td>";
+		  
+		  
 		  echo" </tr>";
 		 
 		   echo"<tr>";
@@ -1610,7 +1568,10 @@ function printContent(el){
 
 }
 else {
-           echo "<center>INVALID PATIENT ID</center>";
+           echo "<div class='alert alert-danger alert-dismissible text-center' role='alert'>
+					 Entered ID is INVALID!. <br> Please Enter Valid PATIENT ID!
+					 <button type='button' class='btn-close text-danger'  data-bs-dismiss='alert' aria-label='Close'></button>
+				 </div>";
         }	
 		}
 	?> 

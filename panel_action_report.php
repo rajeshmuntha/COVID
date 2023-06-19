@@ -20,38 +20,113 @@ function printContent(el){
  <html>  
       <head>  
            <title></title>  
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	width: 180px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
+
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
       </head>  
       <body>  
-            
+
+      <header>
+            <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="cpanel.php? = Cpanel Home Page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="new_staff_super_admin.php?=new staff">Staff</a>
+                            </li>                            
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="queries_super_admin.php? = All Queries for Employees">Emp. Queries</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Registrations
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="day_wise_super_admin.php? = Day wise reports for super admin">Day Wise</a></li>
+                                <li><a class="dropdown-item" href="panel_wise_super_admin.php">Panel Wise</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reports
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="doctor_reports.php? = Panel Reports Super Admin">Doctor Wise</a></li>
+                                <li><a class="dropdown-item" href="report_super_admin_staff_wise.php? = Registration Date xrd336efe">Employee Wise</a></li>
+                                <li><a class="dropdown-item" href="report_super_admin_day_wise.php? = Patient Reports Super Admin">Test Wise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item active" href="reports_panel.php? = Panel Reports Super Admin">Invoice</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="new_patient_super_admin.php? = Patient Creation">New Patient</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_super_admin.php? = Patient Details">Patient Details</a></li>
+                                <li><a class="dropdown-item" href="update_del_super_admin.php? = Registration Date xrd336efe">Update / Delete</a></li>                                
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="patient_data_level_II_super_admin.php? = Sample Kit Validate">Kit Validate</a></li>
+                                <li><a class="dropdown-item" href="ptn_reports_super_admin.php? = Patient Reports">Test Results</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="reset_s_admin.php?=Passwor Reset">Change Password</a></li>
+                                <li><a class="dropdown-item" href="database-backup.php? = Database BackUp">DB Backup</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header> 
+          
+  
+
+  <section class="mt-5 ">
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">   
                 <form action="panel_action_report.php? = Panel Reports" method="POST">
-                <table width="900" align="center">
+                <table class="table table-bordered text-center align-middle"> 
+                  <thead>
+              <tr><th colspan="5" class="bg-light text-primary text-center fs-4">PANEL WISE INVOICE &nbsp; <i class="bi bi-file-earmark-text-fill"></i></th></tr>
+            </thead>
                 <tr>
-                    <td><select name="p_id" class="tb1" required=""/>
+                    <td><select name="p_id" class="form-control" required=""/>
                  <option value="#">Select Panel</option>
                  <?php
 					   $type = mysqli_query($conn, "SELECT * FROM panel where process_id='4'");
@@ -62,55 +137,28 @@ function printContent(el){
                  <option value="<?php echo $row['p_id'];?>"><?php echo $row['mode'];}?>             
 				 </option></select>	
                     </td>
-                    <td> <input type="date" name="from_date" id="from_date" class="tb1" placeholder="From Date" required/> 
+                    <td> <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" required/> 
                     </td>
-                    <td> <input type="date" name="to_date" id="to_date" class="tb1" placeholder="To Date" required/> 
+                    <td> <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" required/> 
                     </td>
-                    <td><input type="submit" class="tb1" name="submit" value="Generate Invoice">  
+                    <td><input type="submit" class="btn btn-outline-secondary" name="submit" value="Generate Invoice">  
                     </td>
-                   <td>
-                   </td>
                 </tr>
                 
                 </table>
-                </form> 
-                             
-                <br />  
-                  
+                </form>                   
            </div>  
-      </body>  
- </html>  
+  </section>
  
-<table align="center">
+ 
+           <section class="pt-5 animate__animated animate__fadeInRight">
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">   
+
+<table class="table mt-3  animate__animated animate__bounceInDown">
 <tr>
 <td>
 <div id="div1">
-<style>
-#tb {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 900px;
-}
 
-#tb td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 12px;
-}
-
-#tb tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#tb tr:hover {background-color: #ddd;}*/
-
-#tb th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 12px;
-}
-</style>
 <?php  
   $i=1;
  if(isset($_POST["from_date"], $_POST["to_date"], $_POST["p_id"]))  
@@ -122,16 +170,16 @@ function printContent(el){
       $result = mysqli_query($conn, $query);  
      ?>
        		    
-              <table align="center" id="tb" border='1'>
+              <table id="tb" class="table table-bordered">
               <tr>
-            <td colspan="4" style="text-align:left; color:blue; font-size:100%;"><strong>SP CARE GROUP<span style="float:right;">INVOICE
+            <td colspan="4" style="text-align:left; color:#0d6efd; font-size:20px;"><strong>SP CARE GROUP<span style="float:right;">INVOICE
         </strong>
             </td>
             </tr> 
             <tr>
             <td> 2A-1,7,JALAN RAWANG MUTIARA 3,RAWANG MUTIARA BUSINESS CENTER</td>
             
-            <td width="150" rowspan="4" align="center"><img src="img/Sp-cov-19-logo care.png" width="100" height="100"></td>
+            <td width="150" rowspan="4" align="center"><img src="img/Sp-cov-19-logo care1.png" width="100" height="auto"></td>
             </td></tr>
             <tr>
             <td> 48000 RAWANG, SELANGOR, MALAYSIA</td>
@@ -242,26 +290,26 @@ function printContent(el){
             </td>
             </tr>
             <tr>
-            <td colspan="4"> <span style="float:right;">Total amount to be caluculated : <?php echo $amount;?></td>       
+            <td colspan="4"> <span style="float:right;">Total amount to be calculated : <?php echo $amount;?></td>       
             </tr>
             <tr>
-            <td colspan="4">COMMENTS:</td>       
+            <td colspan="4" class="fw-bold">COMMENTS:</td>       
             </tr>
             <tr>
-            <td colspan="4">1.Total Payment Due in 30 days. 2. Please include invoice number on your check. 3.Make all payments to SP CARE SDN. BHD.</td>       
+            <td colspan="4" class="text-center">1.Total Payment Due in 30 days. 2. Please include invoice number on your check. 3.Make all payments to SP CARE SDN. BHD.</td>       
             </tr>
             </tr>
             </table> 
             <br>
-           <table align="center" id="tb" border='1'>  
+           <table id="tb" class="table table-bordered text-center align-middle">  
                 <tr>  
-                     <th width="20">S.NO.</th>  
-                     <th width="100">ICNO</th>  
-                     <th width="150">NAME</th>  
-                     <th width="50">GENDER</th> 
-                     <th width="50">TEST OBTAINED</th>  
-                     <th width="50">TEST COST</th>
-					 <th width="50">DATE</th>  
+                     <th class="bg-light" width="20">S.NO.</th>  
+                     <th class="bg-light" width="100">ICNO</th>  
+                     <th class="bg-light" width="150">NAME</th>  
+                     <th class="bg-light" width="50">GENDER</th> 
+                     <th class="bg-light" width="50">TEST OBTAINED</th>  
+                     <th class="bg-light" width="50">TEST COST</th>
+					           <th class="bg-light" width="50">DATE</th>  
                 </tr>  
       <?php 
       if(mysqli_num_rows($result) > 0)  
@@ -317,10 +365,11 @@ function printContent(el){
   </div>
  </td>
  </tr>
-  <tr>
+  <tr class="text-center">
  <td>
- <button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div>
+ <button onClick="printContent('div1')" class="btn btn-outline-primary">Print Invoice <i class="bi bi-printer"></i></button></div>
  </td>
  </tr>
  </table>
- 
+</div>
+           </section>

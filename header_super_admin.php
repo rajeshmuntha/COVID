@@ -31,11 +31,16 @@ session_start();
         .navbar-nav > .nav-item > .nav-link:hover{
             font-weight: 500;
             color: #0d6efd !important;
+            background-image: url(./img/virus.svg);
+            background-repeat: no-repeat;
         }
         .navbar-nav > .nav-item > .active{
             font-weight: 600;
             color: #0d6efd !important;
+            text-align: center;
             border-bottom: 2px solid #0d6efd;
+            background-image: url(./img/virus.svg);
+            background-repeat: no-repeat;
         }
         .navbar-nav > .nav-item > .nav-link > dropdown-menu > dropdown-item :hover{
             font-weight: 500;
