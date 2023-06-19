@@ -1,7 +1,7 @@
 <?php
 include_once("header_level-II.php");
 include_once("conn.php");
-include_once "left_menu_emp2.php";
+// include_once "left_menu_emp2.php";
 error_reporting( error_reporting() & ~E_NOTICE )
 ?>
 <?php
@@ -11,37 +11,21 @@ if($_SESSION["islogin"] == 'N'){
 }
 ?>
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+	<head>
+    <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
+<!-- Google Fonts cdn -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3 cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <script src="jquery-3.2.1.min.js"></script>
  
 
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	width: 180px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
+
 <script>
 function printContent(el){
 	var restorepage = document.body.innerHTML;
@@ -52,103 +36,145 @@ function printContent(el){
 }
 </script>
 </head>
+
+<header>
+            <nav class="navbar navbar-expand-md  bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="employee_2.php? = Staff Home Page">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sample Kit
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="patient_data_level_II.php? = Patient Details">Issue Kit</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item " href="update_level_II.php? = Update Patient Details">Update / Edit</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item animate__animated animate__bounceInDown">
+                            <a class="nav-link active" aria-current="page" href="report_emp2_day_wise.php? = Day Wise Reports SP Care">Reports</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="queries_employee_2.php? = Emplyee Queries">Reg. Queries</a>
+                            </li>
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="#">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="reset_emp2.php?=Passwor Reset">Change Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header>
+
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
-    <div class="outer-scontainer">
-<div class="row" align='center'>
-        
-        
-           <form action="" method="post" >
-           <table width='800' border='0'>
-           <tr>
-             <td colspan="3" align="center">Reports </td>
-             <tr>
-               <td align="left">Report Date</td>
-               <td width="427" align="left"><input type ="date" name="reg_date" class="tb1" required></td>
-               <td align="center">&nbsp;</td>
-             <tr>
-           <td width="108" align="left">Test Type</td>
-           <td align="left"><select name="t_type" class="tb1" required="">
+<section class="py-5">
+  <div class="container p-4 shadow-lg rounded rounded-4">
+    <form name="form" method="post" action="">
+        <table class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr class="text-center fs-4">
+            <th scope="row" colspan="2" class="bg-light text-primary  fs-4">SEARCH FOR REPORTS <i class="bi bi-file-earmark-medical"></i></th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <th scope="col">Date of Report : </th>
+                <td><input type ="date" name="reg_date" class="form-control" required></td>
+            </tr>
+            <tr>
+                <th scope="col">Type of Test : </th>
+                <td>
+                  <select name="t_type" class="form-control" required="">
                       <option selected>Type of Test</option>
-                      <?php
-					   $type = mysqli_query($conn, "SELECT * FROM patient group by t_type order by t_type ASC");
-					    while ($row = mysqli_fetch_array($type)) 
-						{
-						
-					  ?>
-                      <option value="<?php echo $row['t_type'];	?>"><?php //echo $row['t_type'];
-					  $sql = mysqli_query($conn, "SELECT * FROM test_type where id = '".$row['t_type']."'");
-					  while ($row1 = mysqli_fetch_array($sql)) 
-						{
-							echo $row1['test_type'];
-						}
-					  
-					  	}?></option>
-                  
+                        <?php
+                          $type = mysqli_query($conn, "SELECT * FROM patient group by t_type order by t_type ASC");
+                            while ($row = mysqli_fetch_array($type))  {                          
+                          ?>
+                           <option value="<?php echo $row['t_type'];	?>"><?php //echo $row['t_type'];
+                            $sql = mysqli_query($conn, "SELECT * FROM test_type where id = '".$row['t_type']."'");
+                            while ($row1 = mysqli_fetch_array($sql)) 
+                            {
+                            echo $row1['test_type'];
+                            }                          
+                            }?>
+                      </option>
+                              
                     </select>
-                    
-                    <input type="submit" class="tb2" name="submit" value="Search">
-                    
-                    
-               </td>
-           <td width="243" align="left">&nbsp;</td>
-             <tr>
-               <td align="left">&nbsp;</td>
-               <td align="left">&nbsp;</td>
-               <td align="left">&nbsp;</td>
-             </table>
-           </form>
-       <div id="div1">
-       
-       <style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1200px;
-   }
+                </td>
+            </tr>
+            <tr class="">
+                <th scope="row" colspan="2"><input type="submit" name="submit" class="btn btn-outline-success" value="Search for results" /></th>
+            </tr>
+        </tbody>
+        </table>
+    </form>
+  </div>
+</section>
 
-#des td {
-  border: 1px solid #09F;
-  padding: 9px;
-  font-size: 14px;
- }
 
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 16px;
-  padding-bottom: 10px;
-  text-align: center;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>
-               <?php
+         <?php
 			   $i=1;
 			   if(isset($_POST['submit']))
 			   {
 			   $date = $_POST['reg_date'];
                $type = $_POST['t_type'];
             $sqlSelect = mysqli_query($conn, "SELECT * FROM patient where reg_date = '".$date."' AND t_type = '".$type."'");
-			//$sqlSelect = mysqli_query($conn, "SELECT * FROM patient where icno = $icno group by icno LIMIT 10");
                ?>
+
+
+<div id="div1">
                
-          <table align='center' id='des' border="1" width="1100">
+<section>
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">
+    <h4 class="text-center text-primary">Searched Results</h4>
+  <table class="table text-center table-hover table-bordered align-middle">
             <thead>
                 <tr>
-                	<th width='50'>Sl.No</th>
-                    <th width='100'>ICNO</th>
-                    <th width='440'>Patient Name</th>
-                    <th width='150'>Date of Birth</th>
-                    <th width='100'>Ph. No.</th>
-                    <th width='150'>Panel Name</th>
-                    <th width='150'>Test Type</th>
-                    <th width='120'>Test Location</th>
-                   <th width='100'>Validate On</th>
-					<!-- <th width="100">Kit Approved</th>
-                     <th width='40'>Details</th>!-->
+                	  <th class="bg-light align-middle" width='50'>Sl.No</th>
+                    <th class="bg-light align-middle" width='100'>ICNO</th>
+                    <th class="bg-light align-middle" width='440'>Patient Name</th>
+                    <th class="bg-light align-middle" width='150'>Date of Birth</th>
+                    <th class="bg-light align-middle" width='100'>Ph. No.</th>
+                    <th class="bg-light align-middle" width='150'>Panel Name</th>
+                    <th class="bg-light align-middle" width='150'>Test Type</th>
+                    <th class="bg-light align-middle" width='120'>Test Location</th>
+                    <th class="bg-light align-middle" width='100'>Validate On</th>
                     
                 </tr>
             </thead>
@@ -186,16 +212,10 @@ function printContent(el){
                             case 4: echo"Antibody IGM/IGG";
                             break;
 
-                    }
-                    
-
-
-
-
-               ?></td>
+                    }?>
+                    </td>
                   <td><?php  echo strtoupper($row['t_location']); ?></td> 
-                  <td><?php  echo strtoupper($row['reg_date']); ?></td> 
-                   
+                  <td><?php  echo strtoupper($row['reg_date']); ?></td>  
                 </tr>
                     <?php
 					$i++;
@@ -203,30 +223,30 @@ function printContent(el){
                 ?>
                 </tbody>
         </table>
-  <table width="800" border="0" align="center">
+  </div>
+</section>
+
+<div class="container p-4 shadow rounded rounded-4">
+<h6 class="text-center text-primary">Records Found</h6>
+<table class="table text-center table-hover table-bordered">
             <tr>
-              <td width="149">Total Records :</td>
+              <td class="bg-light fw-bold" width="149">Total Records :</td>
               <td width="217"><?php 
-			  $sql_r = mysqli_query($conn, "SELECT COUNT(*) FROM patient where reg_date = '".$date."' AND t_type = '".$type."'");
-					  while ($row1 = mysqli_fetch_array($sql_r)) 
-						{
-							echo $row1['COUNT(*)'];
-						}
-						}
-			  
-			  
-			  
-			   ?></td>
-              <td width="412">&nbsp;</td>
+                $sql_r = mysqli_query($conn, "SELECT COUNT(*) FROM patient where reg_date = '".$date."' AND t_type = '".$type."'");
+                    while ($row1 = mysqli_fetch_array($sql_r)) 
+                    {
+                      echo $row1['COUNT(*)'];
+                    }
+                    }
+			          ?>
+              </td>            
+            </tr>
+            <tr class="text-center">
+              <td  colspan="2"><button class="btn btn-outline-secondary btn-sm float-middle" onClick="printContent('div1')">Print Results <i class="bi bi-printer"></i></button></div></td>
             </tr>
   </table>
+</div>
   </div>
-  <table width="800" border="0">
-            <tr>
-              <td align="center"><button onClick="printContent('div1')"><img src="img/print.png" width="20" height="20" /></button></div></td>
-    </tr>
-  </table>
-  <p>&nbsp;</p>
   </div>
 
 </body>

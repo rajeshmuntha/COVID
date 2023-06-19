@@ -36,7 +36,7 @@ $validate = strtoupper($vali);?>
     <header>
             <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="cpanel.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -240,8 +240,8 @@ $validate = strtoupper($vali);?>
         </tr>
         <tr>
           <td colspan="2">
-            <div class="d-grid">
-            <input type="submit" name="submit" value="Register" class="btn btn-outline-success">
+            <div class="">
+            <input type="submit" name="submit" value="Register" class="btn btn-outline-primary">
             </div>
           </td>
         </tr>

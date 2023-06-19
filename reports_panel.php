@@ -22,7 +22,7 @@ include_once("conn.php");
       <header>
             <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="cpanel.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -127,7 +127,7 @@ include_once("conn.php");
 				 </option></select>	</div>
                       <div class="col-lg-3 col-md-6 col-6"><input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" required/> </div>
                       <div class="col-lg-3 col-md-6 col-6"><input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" required/> </div>
-                      <div class="col-lg-3 col-md-6 col-6 d-grid"><input type="submit" class="btn btn-outline-warning" name="submit" value="Generate Invoice"> </div>
+                      <div class="col-lg-3 col-md-6 col-6 d-grid"><input type="submit" class="btn btn-outline-primary" name="submit" value="Generate Invoice"> </div>
                     </div>
                 </form>  
                   

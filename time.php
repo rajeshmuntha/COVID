@@ -8,6 +8,8 @@
         initial-scale=1.0" /> 
   
     <title>Digital Clock</title> 
+      <!-- Bootstrap icons cdn -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
     <style> 
         #clock { 
@@ -22,7 +24,7 @@
 <body>
 
   
-   <div id="clock">8:10:45</div>
+   <div id="clock"> 8:10:45</div>
  
 
 <script> 

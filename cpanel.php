@@ -40,7 +40,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
       <header>
             <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="cpanel.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -139,7 +139,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
       </thead>
       <thead>
         <tr class="text-center fs-3">
-        <th scope="col" colspan="3" class="bg-light text-danger">COV-19<span class="text-primary"> SYS</span><span class="text-dark fw-normal"> | </span><span class="text-primary">SUPER ADMIN</span></th>
+        <th scope="col" colspan="3" class="bg-light text-danger"><i class="bi bi-virus"></i> COV-19<span class="text-primary"> SYS</span><span class="text-dark fw-normal"> | </span><span class="text-primary">SUPER ADMIN <i class="bi bi-person-square"></i></span></th>
         </tr>
       </thead>
       <tbody>

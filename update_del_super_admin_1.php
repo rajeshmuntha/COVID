@@ -124,7 +124,7 @@ if($_SESSION["islogin"] == 'N'){
            <form action="" method="post" >
                Patient IC/Passport No: 
                  <input type="text" class="tb1" class="tb1" name="icno" placeholder="Enter IC/Passport No.">
-                <input type="submit" class="tb2" name="submit" value="Search">
+                <input type="submit" class="btn btn-outline-secondary" name="submit" value="Search">
             </form>
             </td>
         <tr>

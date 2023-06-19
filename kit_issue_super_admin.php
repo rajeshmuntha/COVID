@@ -30,7 +30,7 @@ $date = date("Y-m-d");
 <header>
             <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="cpanel.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -194,8 +194,8 @@ $res5=mysqli_query($conn,"select * from patient where id = '".$row['id']."'");
   </td>
 </tr>
 <tr>
-  <td colspan="2" class="text-center"><div class="d-grid">
-  <input name="submit" class="btn btn-outline-success" type="submit" value="Approve" />
+  <td colspan="2" class="text-center"><div class="">
+  <input name="submit" class="btn btn-outline-primary" type="submit" value="Approve" />
   </div></td>
 </tr>
 </table>

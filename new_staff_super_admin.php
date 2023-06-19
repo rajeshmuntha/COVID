@@ -33,7 +33,7 @@ $auth = $_SESSION['user_id'];
     <header>
             <nav class="navbar navbar-expand-lg shadow-sm  bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="cpanel.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -162,8 +162,8 @@ $auth = $_SESSION['user_id'];
   </tr>                                           
   <tr>
     <td colspan="2">
-      <div class="d-grid">
-      <input type="submit" class="btn btn-outline-success animate__animated animate__tada" name="submit" value="Register" />
+      <div class="">
+      <input type="submit" class="btn btn-outline-primary animate__animated animate__tada" name="submit" value="Register" />
       </div>
     </td>
   </tr>
@@ -283,8 +283,8 @@ if(isset($_POST["submit"])){
 					}
 					
 					?></td>
-                    <td align="center" valign="middle"><a href="employee_approval.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-primary">Click to Config <i class="bi bi-gear"></i></button></td>
-                    <td align="center" valign="middle"><a href="reset_employee_password.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-secondary">Change Password <i class="bi bi-key"></i></button></td>
+                    <td align="center" valign="middle"><a href="employee_approval.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-secondary">Click to Config <i class="bi bi-gear"></i></button></td>
+                    <td align="center" valign="middle"><a href="reset_employee_password.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-primary">Change Password <i class="bi bi-key"></i></button></td>
                     
                     
                                  
