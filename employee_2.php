@@ -82,7 +82,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
 <header>
             <nav class="navbar navbar-expand-md  bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>

@@ -113,7 +113,7 @@ echo "<center>Login ID: ".$row['user_id']." <p style='color:#006600;'>".$status.
         <table class="table table-responsive table-hover table-bordered">
         <thead>
             <tr class="text-center fs-4">
-            <th scope="row" colspan="2" class="bg-light text-primary">Reset Your Password</th>
+            <th scope="row" colspan="2" class="bg-light text-primary">Reset Your Password <i class="bi bi-key"></i></th>
             </tr>
         </thead>
         <tbody class="text-center">

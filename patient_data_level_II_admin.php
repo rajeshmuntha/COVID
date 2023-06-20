@@ -13,46 +13,104 @@ if($_SESSION["islogin"] == 'N'){
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 <script src="jquery-3.2.1.min.js"></script>
- 
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
 </head>
+
+<body>
+<header>
+            <nav class="navbar navbar-expand-md  bg-body-tertiary shadow">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="admin_level.php? = Admin Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="admin_level.php? = Admin Home Page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="new_staff.php? = New Patient Creation">Staff</a>
+                            </li>
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="new_patient_admin.php? = Patient Creation">Add New Patient</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_admin.php? = Patient Details">Patient Details</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item active" href="patient_data_level_II_admin.php? = Patient Details">Issue Kit</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="ptn_reports_admin.php? = Patient Reports">Test Results</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reports
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="report_admin_day_wise.php? = Patient Reports Admin">Test Wise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="reports_panel_admin.php? = Panel Reports Super Admin">Invoice</a></li>
+                            </ul>
+                            </li>                            
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="#">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="reset_admin.php?=Passwor Reset">Change Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header>
+
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
     <div class="outer-scontainer">
-        <div class="row" align='center'>
-        <table width="1100">
+    <section class="mt-5 ">
+  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+        <table class="table table-bordered table-hover">
         <tr>
-          <td align="center"><strong>PATIENT RECORDS</strong></td>        
+          <th class="bg-light text-primary fs-4 text-center">PATIENT RECORDS &nbsp; <i class="bi bi-file-earmark-text-fill"></i></th>        
         <tr>
         	<td align="right">
            <form action="patient_data_level_II_admin_res.php? = Results" method="post" >
                Patient IC/Passport No: 
                  <input type="text" class="tb1" name="icno" placeholder="Enter IC/Passport No..">
-                <input type="submit" class="tb2" name="submit" value="Search">
+                <input type="submit" class="btn btn-secondary" name="submit" value="Search">
             </form>
             </td>
         <tr>
@@ -63,44 +121,20 @@ if($_SESSION["islogin"] == 'N'){
             $sqlSelect = mysqli_query($conn, "SELECT * FROM patient where status ='0' order by id desc LIMIT 2000");
 			//$sqlSelect = mysqli_query($conn, "SELECT * FROM patient where icno = $icno group by icno LIMIT 10");
                ?>
-   <style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 1100px;
-   }
-
-#des td {
-  border: 1px solid #09F;
-  padding: 6px;
-  font-size: 14px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>               
-            <table align='center' id="des" border="1" width="1200">
+             
+            <div class="table-responsive">
+            <table id="des" class="table table-bordered table-hover text-center align-middle mt-3 animate__animated animate__bounceInDown">
             <thead align='center'>
                 <tr>
-                	<th width='40'>No.</th>
-                    <th width='100'>IC/Passport No.</th>
-                    <th width='300'>Patient Name</th>
-                    <th width='100'>Reg. No.</th>
-                    <th width='100'>Test Obtained</th>
-                    <th width='100'>Test Location</th>
-                    <th width='90'>DOR</th>
-                    <th width="80">Kit Status</th>
-                    <th width='80'>Issue Kit</th>
+                	<th class="align-middle bg-light" width='40'>No.</th>
+                    <th class="align-middle bg-light" width='100'>IC/Passport No.</th>
+                    <th class="align-middle bg-light" width='280'>Patient Name</th>
+                    <th class="align-middle bg-light" width='100'>Test Obtained</th>
+                    <th class="align-middle bg-light" width='80'>Reg. No.</th>
+                    <th class="align-middle bg-light" width='100'>Test Location</th>
+                    <th class="align-middle bg-light" width='80'>DOR</th>
+					<th class="align-middle bg-light" width="80">Kit Status</th>
+                    <th class="align-middle bg-light" width='60'>Issue Kit</th>
                     
                 </tr>
             </thead>
@@ -114,7 +148,6 @@ if($_SESSION["islogin"] == 'N'){
                 <td><?php  echo $i; ?></td>
                 <td><?php  echo strtoupper($row['icno']); ?></td>
                 <td><?php  echo $row['f_name']. '&nbsp;'.$row['l_name'];?></td>
-                <td><?php  echo $row['validation']; ?></td>
                 <td><!--<?php  echo $row['t_type']; ?>--><?php  //echo $row['t_type']; 
                     switch($row['t_type'])
                     {
@@ -133,16 +166,11 @@ if($_SESSION["islogin"] == 'N'){
                             break;
                             case 7: echo"Influenza A & B";
                             break;
-
                     }
-                    
-
-
-
-
-               ?>
+                  ?>
                	
                </td>
+                <td><?php  echo $row['validation']; ?></td>
                     <td><?php  echo $row['t_location']; ?></td>
                     <td><?php  echo $row['sys_date']; ?></td>
                     <td><?php  
@@ -153,9 +181,8 @@ if($_SESSION["islogin"] == 'N'){
 						case 1: echo "<font color='green'>ATTENDED</font>";
 								break;
 					}
-					
 					?></td>
-                   <td><a href="kit_issue_admin.php?id=<?php echo $row["id"]; ?>"><button><img src="img/correct.gif" width="20" height="20"></button></td>
+                   <td><a href="kit_issue_admin.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-outline-primary">Approve</button></td>
                 </tr>
                     <?php
 					$i++;
@@ -163,7 +190,9 @@ if($_SESSION["islogin"] == 'N'){
                 ?>
                 </tbody>
         </table>
+            </div>
         <?php //} ?>
+            </section>
     </div>
 
 </body>

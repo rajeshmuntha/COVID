@@ -1,7 +1,6 @@
 <?php
-include_once("header_level-II.php");
+include_once("header_doctor.php");
 include_once("conn.php");
-// include_once "left_menu_emp2.php";
 error_reporting( error_reporting() & ~E_NOTICE )
 ?>
 <?php
@@ -38,9 +37,9 @@ function printContent(el){
 </head>
 
 <header>
-            <nav class="navbar navbar-expand-md  bg-body-tertiary">
+            <nav class="navbar navbar-expand-md fixed-top bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
+                    <a class="navbar-brand" href="doctor.php? = Doctor Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -50,23 +49,17 @@ function printContent(el){
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="employee_2.php? = Staff Home Page">Home</a>
+                            <a class="nav-link" aria-current="page" href="doctor.php? = Doctor Home Page">Home</a>
                             </li>
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Sample Kit
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Test Results
                             </a>
                             <ul class="dropdown-menu animate__animated animate__flipInX">
-                                <li><a class="dropdown-item" href="patient_data_level_II.php? = Patient Details">Issue Kit</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_doctor.php? = Patient Details">Validate</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item " href="update_level_II.php? = Update Patient Details">Update / Edit</a></li>
+                                <li><a class="dropdown-item active" href="report_doc_day_wise.php">Print Report</a></li>
                             </ul>
-                            </li>
-                            <li class="nav-item animate__animated animate__bounceInDown">
-                            <a class="nav-link active" aria-current="page" href="report_emp2_day_wise.php? = Day Wise Reports SP Care">Reports</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="queries_employee_2.php? = Emplyee Queries">Reg. Queries</a>
                             </li>
                             <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,7 +84,7 @@ function printContent(el){
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
                                 <li><a class="dropdown-item " href="#">Update Profile</a></li>
-                                <li><a class="dropdown-item" href="reset_emp2.php?=Passwor Reset">Change Password</a></li>
+                                <li><a class="dropdown-item" href="reset_doc.php?=Passwor Reset">Change Password</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
@@ -103,8 +96,8 @@ function printContent(el){
   </header>
 
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
-<section class="py-5 animate__animated animate__fadeInRight">
-  <div class="container p-4 shadow-lg rounded rounded-4">
+<section class="pt-5">
+  <div class="container mt-5 p-4 shadow-lg rounded rounded-4">
     <form name="form" method="post" action="">
         <table class="table table-responsive table-hover table-bordered">
         <thead>

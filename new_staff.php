@@ -1,7 +1,6 @@
 <?php
 include_once("header_admin.php");
 include_once("conn.php");
-include_once "left_menu_admin.php";
 ?>
 <?php
 session_start();
@@ -9,51 +8,7 @@ if($_SESSION["islogin"] == 'N'){
   header("Location: index.php");
 }
 ?>
-<style type="text/css">
-  
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 200px;
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-   width: 610px;
-}
-.tb3 {
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    
-}
-.tb4 {
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Courier New", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 100px; 
-}
 
-  </style>
   <script>
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
@@ -66,39 +21,122 @@ $validate = strtoupper($vali);
 <?php
 $auth = $_SESSION['user_id'];
 ?>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+<!-- Bootstrap icons cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<header>
+            <nav class="navbar navbar-expand-md fixed-top bg-body-tertiary shadow">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="admin_level.php? = Admin Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="admin_level.php? = Admin Home Page">Home</a>
+                            </li>
+                            <li class="nav-item animate__animated animate__bounceInDown">
+                            <a class="nav-link active" aria-current="page" href="new_staff.php? = New Patient Creation">Staff</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="new_patient_admin.php? = Patient Creation">Add New Patient</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_admin.php? = Patient Details">Patient Details</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="patient_data_level_II_admin.php? = Patient Details">Issue Kit</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="ptn_reports_admin.php? = Patient Reports">Test Results</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reports
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="report_admin_day_wise.php? = Patient Reports Admin">Test Wise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="reports_panel_admin.php? = Panel Reports Super Admin">Invoice</a></li>
+                            </ul>
+                            </li>                            
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="#">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="reset_admin.php?=Passwor Reset">Change Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header>
+
+  
+<section style="margin-top: 100px;">
+  <div class="container p-4 shadow rounded rounded-4">
+    
 <form action="" method="post" name="form1" id="form1">
-<table width="480" height="350" border="0" align="center">
-  <tr>
-    <td colspan="2" align="center">&nbsp;</td>
+<table class="table-responsive table table-hover table-bordered text-center align-middle">
+  <thead>
+    <tr>
+      <th scope="row" colspan="2" class="fs-4 bg-light text-primary" >ADD NEW STAFF &nbsp; <i class="bi bi-people-fill"></i></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  <tr><th scope="">Staff ID</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" name="user_id" placeholder="Enter Staff Uniq ID" required/></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>New Staff</strong></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td width="142">Staff ID</td>
-    <td width="328"><input type="text" class="tb1" name="user_id" placeholder="Enter Staff Uniq ID" required/></td>
-  </tr>
-  <tr>
-    <td>Login Password</td>
-    <td><input type="password" class="tb1" placeholder="Login Password" name="pass" required>
+      <th scope="">Login Password</th>
+    <td><input type="password" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Login Password" name="pass" required>
 					</td>
   </tr>
   <tr>
-    <td>Staff Name</td>
-    <td><input type="text" class="tb1" placeholder="Staff Name" name="name" required></td>
+      <th scope="">Name of the Staff</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Staff Name" name="name" required></td>
   </tr>
   <tr>
-    <td>Designation</td>
-    <td><input type="text" class="tb1" placeholder="Designation" name="dgn" required></td></td>
+      <th scope="">Designation</th>
+    <td scope=""><input type="text" class="form-control animate__animated animate__fadeInRight" placeholder="Enter Designation" name="dgn" required></td>
   </tr>
   <tr>
-    <td>Role of Staff</td>
-    <td><select name="role" class="tb3" required="required">
-      <option value="">Select Role</option>
+      <th scope="">Role of Staff</th>
+    <td scope=""><select name="role" class="form-control animate__animated animate__fadeInRight" required="required">
+      <option selected value="">Select Role</option>
+      <option value="1">Super Admin</option>
       <option value="2">Admin</option>
       <option value="3">Doctor</option>
       <option value="4">Employee-I</option>
@@ -108,35 +146,14 @@ $auth = $_SESSION['user_id'];
 	<input type="hidden" name="value" value="1">
   </tr>                                           
   <tr>
-    <td height="48" colspan="2" align="center"><input type="submit" name="submit" value="Register" class="tb4" /></td>
+    <td colspan="2">
+      <div class="">
+      <input type="submit" class="btn btn-outline-primary animate__animated animate__tada" name="submit" value="Register" />
+      </div>
+    </td>
   </tr>
+  </tbody>
 </table>
-<style>
-#des {
-  font-family: "cambria";
-  border-collapse: collapse;
-  width: 900px;
-   }
-
-#des td {
-  border: 1px solid #09F;
-  padding: 9px;
-  font-size: 14px;
- }
-
-#des tr:nth-child(even){background-color: #f2f2f2;}
-
-/*#des tr:hover {background-color: #ddd;}*/
-
-#des th {
-  padding-top: 16px;
-  padding-bottom: 10px;
-  text-align: center;
-  background-color: #3db2e1;
-  color: white;
-  font-size: 16px;
-}
-</style>
 <?php
 if(isset($_POST["submit"])){
    if(!empty($_POST['user_id']))
@@ -189,16 +206,29 @@ if(isset($_POST["submit"])){
             $sqlSelect = mysqli_query($conn, "SELECT * FROM authenticate where value='1' order by id desc");
 			
                ?>
-               
-            <table align='center' id ='des' border="1" width="800">
+</form>
+  </div>
+</section>  
+
+    
+<section class="pt-4">
+  <div class="container p-4 shadow-lg rounded rounded-4 table-responsive">
+    <table class=" table table-hover table-bordered text-center align-middle">
+  <thead>
+    <tr>
+      <th scope="row" colspan="7" class="fs-4 bg-light text-primary" >Staff Configuration &nbsp; <i class="bi bi-gear-fill"></i></th>
+    </tr>
+  </thead>
             <thead>
                 <tr>
-                	<th width='50'>Sl.No</th>
-                    <th width='100'>User ID</th>
-                    <th width='350'>Employee Name</th>
-                    <th width='150'>Rol of Activity</th>
-                    <th width='40'>Status</th>
-                    
+                	<th class="bg-light align-middle">S.No.</th>
+                    <th class="bg-light align-middle" >User ID</th>
+                    <th class="bg-light align-middle" >Employee Name</th>
+                    <th class="bg-light align-middle" >Role of Activity</th>
+                    <th class="bg-light align-middle">Status</th>
+                    <th class="bg-light align-middle">Action</th>
+                    <th class="bg-light align-middle">Reset</th>
+                                       
                 </tr>
             </thead>
 <?php
@@ -210,7 +240,7 @@ if(isset($_POST["submit"])){
                 <tr>
                 <td><?php  echo $i; ?></td>
                 <td><?php  echo strtoupper($row['user_id']); ?></td>
-                <td><?php  echo $row['name'];?></td>
+                <td><?php  echo strtoupper($row['name']);?></td>
 				<td><?php  //echo $row['role']; 
 				
 				switch($row['role'])
@@ -238,7 +268,11 @@ if(isset($_POST["submit"])){
 					}
 					
 					?></td>
-                  <!-- <td><a href="patient_view.php?id=<?php //echo $row["id"]; ?>" target="_blank"><button><img src="img/correct.gif" width="20" height="20"></button></td>!-->
+                    <td align="center" valign="middle"><a href="admin_employee_approval.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-secondary">Click to Config <i class="bi bi-gear"></i></button></td>
+                    <td align="center" valign="middle"><a href="admin_reset_employee_password.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-sm btn-outline-primary">Change Password <i class="bi bi-key"></i></button></td>
+                    
+                    
+                                 
                 </tr>
                     <?php
 					$i++;
@@ -246,4 +280,6 @@ if(isset($_POST["submit"])){
                 ?>
                 </tbody>
         </table>
+  </div>
+</section>        
         <?php //} ?>

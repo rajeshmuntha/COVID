@@ -205,6 +205,7 @@ if($_SESSION["islogin"] == 'N'){
         </table>
             </div>
         <?php //} ?>
+            </section>
     </div>
 
 </body>

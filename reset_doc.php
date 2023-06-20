@@ -1,9 +1,17 @@
 <?php
-include "conn.php";
-include_once "header_doctor.php";
-?>
+include_once("header_level-I.php");
+include_once("conn.php");
+?> 
 <?php
-session_start();
+	                    //session_start();
+						$res=mysqli_query($conn,"select * from authenticate where user_id = '".$_SESSION["user_id"]."'");
+                        while($row=mysqli_fetch_array($res))
+                        {
+                        //echo $row["user_id"]; 
+						break;
+						}
+	   			?>
+                <?php
 $auth = $_SESSION["user_id"];
 if($auth =='')
 {
@@ -12,45 +20,42 @@ location.replace("logout.php? = Invalid Login");
  </script>';
 }
 ?>
-<?php
-
-if($_SESSION["islogin"] == 'N'){
-  header("Location: index.php");
-}
-?>
-
-<?php
-
-?>
-<?php
-//session_start();
-$auth = $_SESSION['user_id'];
-$res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
-						while($row=mysqli_fetch_array($res))
-                        {
-						$emp_id = $row["user_id"];
-						$emp_name = $row["name"];
-						$emp_des = $row["dgn"];
-						$emp_type = $row["role"];
-						
-						}
-?>
-
-<html lang="en">
-	<head>
+<!DOCTYPE html>
+<html>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
     <meta charset="UTF-8">    	   
-    <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
-  <!-- Google Fonts cdn -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-      <!-- Bootstrap 5.3 cdn -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <!-- Bootstrap icons cdn -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>   
+<title>Update Record</title>
+<!-- Bootstrap 5.3 cdn -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style type="text/css">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+<div class="form">
+<p>
+  <?php
+$status = "";
+if(isset($_POST['new']) && $_POST['new']==1)
+{
+$pass =$_REQUEST['pass'];
+$update="update authenticate set pass='".md5($pass)."' where user_id='".$_SESSION["user_id"]."'";
+mysqli_query($conn, $update) or die(mysqli_error());
+$status = "Password Updated Successfully. </br></br>";
+echo "<center>Login ID: ".$row['user_id']." <p style='color:#006600;'>".$status."</center>";
+}else {
+?>
+</p>
 
-  </head>
-  <body>
 
 <header>
             <nav class="navbar navbar-expand-md fixed-top bg-body-tertiary">
@@ -64,8 +69,8 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item animate__animated animate__bounceInDown">
-                            <a class="nav-link active" aria-current="page" href="doctor.php? = Doctor Home Page">Home</a>
+                            <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="doctor.php? = Doctor Home Page">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,8 +82,8 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
                                 <li><a class="dropdown-item" href="report_doc_day_wise.php">Print Report</a></li>
                             </ul>
                             </li>
-                            <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               <?php
                                 session_start();
                                 if(isset($_SESSION["user_id"]))
@@ -111,66 +116,39 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
             </nav>
   </header>
 
-
-  <section class="pt-5 mt-5 animate__animated animate__backInRight">
-  <div class="container mt-5 p-4 table-responsive shadow-lg rounded rounded-4">
-    <table id="des" class=" table table-hover table-bordered rounded rounded-2">
-    <thead>
-        <tr class="fs-5">
-          <th scope="col" colspan="4" class="bg-light text-primary">
-            <?php
-            include_once "time.php"; ?>
-          </th>
-        </tr>
-      </thead>
-      <thead>
-        <tr class="text-center fs-3">
-        <th scope="col" colspan="3" class="bg-light text-danger"><i class="bi bi-virus"></i> COV-19<span class="text-primary"> SYS</span><span class="text-dark fw-normal"> | </span><span class="text-primary">DOCTOR <i class="bi bi-heart-pulse"></i></span></th>
-        </tr>
-      </thead>
-  <tr>
-    <td rowspan="5" width="175">
-	<center>
-	<?php
-			  echo "<img src='img/staff_pics/".$emp_id.".jpg' width='100' height='auto'>"."";
-			  ?>
-			  
-			  </center></td>       
-    <th>User ID :</th>
-    <td> <?php echo $emp_id;?></td>
-  </tr>
-  <tr>
-    <th >Doctor Name :</th>
-    <td> <?php echo $emp_name;?></td>
-  </tr>
-  <tr>
-    <th >Designation :</th>
-    <td> <?php echo $emp_des;?></td>
-  </tr>
-  <tr>
-    <th >User Type :</th>
-    <td> <?php //echo $emp_type;
-	switch($emp_type)
-	{
-		case 1: echo"Super Admin";
-		break;
-		case 2: echo"Admin";
-		break;
-		case 3: echo"Doctor";
-		break;
-		case 4: echo"Employee-I";
-		break;
-		case 5: echo"Employee-II";
-		break;
-	}
-	
-	
-	
-	?></td>
-  </tr>
- 
-</table>
+<section class="pt-5 mt-5 animate__animated animate__fadeInRight">
+  <div class="container mt-5 p-4 shadow-lg rounded rounded-4">
+    <form name="form" method="post" action=""> 
+        <input type="hidden" name="new" value="1" />
+        <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
+        <table class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr class="text-center fs-4">
+            <th scope="row" colspan="2" class="bg-light text-primary">Reset Your Password</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <th scope="col">Login / User ID: </th>
+                <td><?php echo $row['user_id'];?></td>
+            </tr>
+            <tr>
+                <th scope="col">User Name: </th>
+                <td><?php echo $row['name'];?></td>
+            </tr>
+            <tr>
+                <th scope="col">Enter New Password: </th>
+                <td><input type="password" class="form-control" name="pass" placeholder="Enter New Password" required value="" /></td>
+            </tr>
+            <tr class="">
+                <th scope="row" colspan="2"><input name="submit" class="btn btn-outline-success" type="submit" value="Update Password" /></th>
+            </tr>
+        </tbody>
+        </table>
+    </form>
   </div>
-  </section>
-  </body>
+</section>
+<?php } ?>
+</div>
+</body>
 </html>

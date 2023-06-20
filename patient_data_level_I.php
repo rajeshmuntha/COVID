@@ -23,6 +23,7 @@ location.replace("logout.php? = Invalid Login");
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 
     <!-- Bootstrap 5.3 cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -92,8 +93,14 @@ location.replace("logout.php? = Invalid Login");
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
 <section class="pt-5 mt-5 animate__animated animate__fadeInRight">
   <div class="container table-responsive p-4 shadow-lg rounded rounded-4 ">
-    <h4 class=" text-center text-primary">Patient Records</h4>
-    <div class="">
+    <table class="table table-hover table-bordered align-middle">
+    <thead>
+      <tr>
+        <th colspan="8" class="bg-light text-primary fs-4 text-center">PATIENT RECORDS <i class="bi bi-file-medical"></i></th>
+      </tr>
+    </thead>
+    <tr>
+      <th colspan="8">
         <form action="patient_data_level_I_res.php? = Record search data" method="post" >
             <div class="float-end py-4">
                 <span>Patient IC/Passport No: </span>
@@ -101,8 +108,8 @@ location.replace("logout.php? = Invalid Login");
                 <input type="submit" class="btn btn-outline-success btn-sm" name="submit" value="Get Details">
             </div>
         </form>
-    </div>
-    <table class="table table-hover table-bordered align-middle">
+      </th>
+    </tr>
         <?php
 		   $i=1;
 		   $sqlSelect = mysqli_query($conn, "SELECT * FROM patient order by id desc LIMIT 150"); ?>
@@ -146,7 +153,7 @@ location.replace("logout.php? = Invalid Login");
             <td><?php  echo $row['validation']; ?></td>
             <td><?php  echo $row['t_location']; ?></td>
             <td><?php  echo $row['time'];?></td>
-            <td><a href="patient_view.php?id=<?php echo $row["id"]; ?>" target="_blank"><button class="btn btn-outline-light"><img src="img/correct1.gif" width="20" height="auto"></button></td>
+            <td><a href="patient_view.php?id=<?php echo $row["id"]; ?>" target="_blank"><button class="btn btn-outline-light"><img src="img/correct1.gif" width="35" height="auto"></button></td>
         </tr>
             <?php
 				$i++;

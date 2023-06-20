@@ -3,87 +3,59 @@ error_reporting( error_reporting() & ~E_NOTICE )
 ?>
 <!doctype html>
 <html lang="en">
-	<head>
-    <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
+<head>
     <meta name"viewport" content="width=device-width, initial-scale=1.0"/>
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta charset="UTF-8">
-    	<link rel="stylesheet" href="css/style.css">
-        <title>SP CARE | ADMIN</title>
-     </head>
+    <meta charset="UTF-8">    	
+        <title>SP CARE | Admin</title>
+    <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
+    <link rel="stylesheet" href="css/style.css">
+     <!-- Google Fonts cdn -->
+     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap 5.3 cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: 'Barlow', sans-serif;
+        }
+        .navbar-nav > .nav-item > .nav-link:hover{
+            font-weight: 500;
+            color: #0d6efd !important;
+            background-image: url(./img/virus.svg);
+            background-repeat: no-repeat;
+        }
+        .navbar-nav > .nav-item > .active{
+            font-weight: 600;
+            color: #0d6efd !important;
+            text-align: center;
+            border-bottom: 2px solid #0d6efd;
+            background-image: url(./img/virus.svg);
+            background-repeat: no-repeat;
+        }
+        .navbar-nav > .nav-item > .nav-link > dropdown-menu > dropdown-item :hover{
+            font-weight: 500;
+            color: #0d6efd !important;
+        }
+        .navbar-nav > .nav-item > dropdown-menu > dropdown-item .active{
+            font-weight: 600;
+            color: #0d6efd !important;
+            border-bottom: 2px solid #0d6efd;
+        }
+    </style>
+</head>
      <body>
-     	<header class="shadow-sm">
-        <div class="logo">
-        <h1 class="logo-text"><img src="img/h_logo.png" width="10%"> <span class="logo-text2" style="color: #fff !important;position: absolute; left: 108px; top: 14px;"><span style="color: #961c1f;"> 
-        <head> 
-          <style>
-            h1 {
-                text-shadow: 0 0 3px #3db2e1;
-                }
-          </style>COV-19 </span>
-        </head>SYS</span></h1> 
-        </div>
-        <i class="fa fa-bars menu-toggle" style="font-size:25px;color:red"></i>
-        <ul class="nav">
-        	<li><a href="admin_level.php? = Staff Home Page">Home</a></li>
-            <li><a href="new_staff.php? = New Patient Creation<strong></strong>">Staff</a>
-              </li>
-            <li><a href="#">Patient</a>
-            <ul style="left: 0px">
-            		<li><a href="new_patient_admin.php? = Patient Creation">New Patient</a></li>
-                    <li><a href="patient_data_level_admin.php? = Patient Details">Patient Details</a></li>
-                    <li><a href="patient_data_level_II_admin.php? = Sample Kit Validate">Kit Issue</a></li>
-                    <li><a href="ptn_reports_admin.php? = Patient Reports">Test Results</a></li>
-             </ul>
-            </li>  
-            <li><a href="#">Reports</a>
-            <ul style="left: 0px">
-                    <li><a href="report_admin_day_wise.php? = Patient Reports Admin">Test Wise</a></li>
-                    <li><a href="#">Invoice</a></li>                   
-             </ul>
-            </li>
-            <li><a href="#">
-            <?php
-							
-							session_start();
-							if(isset($_SESSION["user_id"]))
-							{
-									if((time() - $_SESSION['last_time']) > 180000)
-									{
-										header("location:logout.php");
-									}
-									else
-									{
-										$_SESSION['last_time'] = time();
-									}
-								}
-							
-								{
-									echo "HI..".$_SESSION['user_id']."<br/>";
-									//echo "<a href='logout.php'>logout</a>";
-								}
-							
-							
-							?>
-            
-            </a>
-            	<ul><li><a href="reset.php?=Passwor Reset">Change Password</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                 </ul>
-            </li> 
-         
-        </ul>
-        </header>
+     	
+
+     
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         
      <script src="script.js"></script>  
         </body>
         </html>
-        <br>
-        <br>
-        <br>
-        <br>
         

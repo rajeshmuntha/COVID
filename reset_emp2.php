@@ -24,6 +24,7 @@ location.replace("logout.php? = Invalid Login");
 <html>
 <head>
 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 <title>Update Record</title>
 <!-- Bootstrap 5.3 cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -59,7 +60,7 @@ echo "<center>Login ID: ".$row['user_id']." <p style='color:#006600;'>".$status.
 <header class="pt-0 mt-0 ">
             <nav class="navbar navbar-expand-md fixed-top bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block ">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -129,7 +130,7 @@ echo "<center>Login ID: ".$row['user_id']." <p style='color:#006600;'>".$status.
         <table class="table table-responsive table-hover table-bordered">
         <thead>
             <tr class="text-center fs-4">
-            <th scope="row" colspan="2" class="bg-light text-primary">Reset Your Password</th>
+            <th scope="row" colspan="2" class="bg-light text-primary">RESET YOUR PASSWORD <i class="bi bi-key"></i></th>
             </tr>
         </thead>
         <tbody class="text-center">

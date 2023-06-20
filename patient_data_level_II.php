@@ -32,7 +32,7 @@ if($_SESSION["islogin"] == 'N'){
 <header>
             <nav class="navbar navbar-expand-md  bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -95,7 +95,7 @@ if($_SESSION["islogin"] == 'N'){
   </header>
 
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
-<section class="pt-5">
+<section class="pt-2">
   <div class="container mt-5  p-4 shadow-lg rounded rounded-4 animate__animated animate__fadeInRight">
     <?php
 			   $i=1;
@@ -118,7 +118,7 @@ if($_SESSION["islogin"] == 'N'){
             <div class="float-end py-4">
                 <span class="fw-bold">Patient IC/Passport No: </span>
                 <input type="text" class="" name="icno" placeholder="Enter Uniq ID" required/>
-                <input type="submit" class="btn btn-outline-success btn-sm" name="submit" value="Get Details">
+                <input type="submit" class="btn btn-outline-secondary btn-sm" name="submit" value="Get Details">
             </div>
         </form>
                     </td>
@@ -176,7 +176,7 @@ if($_SESSION["islogin"] == 'N'){
                         }					
                         ?>
                     </td>
-                    <td><a href="kit_issue.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-outline-success">Approve</button></td>
+                    <td><a href="kit_issue.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-outline-primary">Approve</button></td>
                 </tr>
                     <?php
                         $i++;

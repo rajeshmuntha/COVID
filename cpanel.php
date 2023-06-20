@@ -155,7 +155,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
           <td><?php echo $emp_id;?></td>
         </tr>
         <tr>
-          <th scope="row">Employee Name :</th>
+          <th scope="row">Super Admin Name :</th>
           <td ><?php echo $emp_name;?></td>
         </tr>
         <tr>

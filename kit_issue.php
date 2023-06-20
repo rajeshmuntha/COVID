@@ -161,7 +161,7 @@ echo '<script type="text/javascript">location.replace("patient_data_level_II.php
                 </td>
             </tr>
             <tr class="">
-                <th scope="row" colspan="2"><input name="submit" class="btn btn-outline-success" type="submit" value="Approve Kit" /></th>
+                <th scope="row" colspan="2"><input name="submit" class="btn btn-outline-primary" type="submit" value="Approve Kit" /></th>
             </tr>
         </tbody>
         </table>

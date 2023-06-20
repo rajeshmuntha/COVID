@@ -53,7 +53,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
   <header>
             <nav class="navbar navbar-expand-md  bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -115,11 +115,11 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
             </nav>
   </header>
 
-<section class="mt-5">
+<section class="mt-5 animate__animated animate__fadeInRight">
   <div class="container shadow-lg rounded rounded-4 table-responsive py-4 px-5">
   <table class="table table-hover table-bordered text-center align-middle">
   <tr>
-    <th colspan="5" class="bg-light fs-4 text-primary py-3">Employee Registered Queries</th>
+    <th colspan="5" class="bg-light fs-4 text-primary py-3">EMPLOYEE REGISTERED QUERIES <i class="bi bi-chat-dots"></i></th>
   </tr>
   <tr>
     <td class="bg-light"><strong>SL.NO</strong></td>

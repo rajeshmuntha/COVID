@@ -1,7 +1,6 @@
 <?php
 include_once("header_super_admin.php");
 include_once("conn.php");
-include_once "left_menu.php";
 error_reporting( error_reporting() & ~E_NOTICE )
 ?>
 <?php

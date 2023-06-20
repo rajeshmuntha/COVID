@@ -35,6 +35,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
 						
 						}
 ?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 <!-- Bootstrap 5.3 cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -95,10 +96,10 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
 
 <section class="pt-5 mt-5 animate__animated animate__fadeInRight">
   <div class="container table-responsive p-4 shadow-lg rounded rounded-4">
-        <table class="table table-responsive table-hover table-bordered">
+        <table class="table table-responsive table-hover table-bordered align-middle">
           <thead>
               <tr class="text-center fs-4">
-              <th scope="row" colspan="5" class="bg-light text-primary">Registered Queries</th>
+              <th scope="row" colspan="5" class="bg-light text-primary">Registered Queries <i class="bi bi-chat-dots"></i></th>
               </tr>
           </thead>
           <tbody class="text-center">

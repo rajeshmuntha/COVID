@@ -13,34 +13,13 @@ if($_SESSION["islogin"] == 'N'){
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 <script src="jquery-3.2.1.min.js"></script>
- 
 
-<style type="text/css">
- 
-.tb1 {
-	
-	-webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria";
-    outline:0; 
-    height:30px; 
-	width: 180px; 
-    
-}
-.tb2 {
-	-webkit-border-radius: 1px; 
-    -moz-border-radius: 1px; 
-    border-radius: 1px; 
-    border: 1.5px solid #332b92; 
-	font-family: "Cambria", Courier, monospace;
-    outline:0; 
-    height:30px; 
-    width: 50px; 
-}
-</style>
+    <!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
+
 <script>
 function printContent(el){
 	var restorepage = document.body.innerHTML;
@@ -51,20 +30,99 @@ function printContent(el){
 }
 </script>
 </head>
+
+
+<header>
+            <nav class="navbar navbar-expand-md fixed-top bg-body-tertiary shadow">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="admin_level.php? = Admin Home Page">
+                    <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
+                    <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="admin_level.php? = Admin Home Page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="new_staff.php? = New Patient Creation">Staff</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Patient
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item" href="new_patient_admin.php? = Patient Creation">Add New Patient</a></li>
+                                <li><a class="dropdown-item" href="patient_data_level_admin.php? = Patient Details">Patient Details</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="patient_data_level_II_admin.php? = Patient Details">Issue Kit</a></li>
+                            </ul>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="ptn_reports_admin.php? = Patient Reports">Test Results</a>
+                            </li>
+                            <li class="nav-item dropdown animate__animated animate__bounceInDown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reports
+                            </a>
+                            <ul class="dropdown-menu animate__animated animate__flipInX">
+                                <li><a class="dropdown-item active" href="report_admin_day_wise.php? = Patient Reports Admin">Test Wise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="reports_panel_admin.php? = Panel Reports Admin">Invoice</a></li>
+                            </ul>
+                            </li>                            
+                            <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <?php
+                                session_start();
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    if((time() - $_SESSION['last_time']) > 180000)
+                                    {
+                                      header("location:logout.php");
+                                    }
+                                    else
+                                    {
+                                      $_SESSION['last_time'] = time();
+                                    }
+                                  }
+                                
+                                  {
+                                    echo "Hi..".$_SESSION['user_id']."";
+                                  }
+                              ?>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__flipInX">
+                                <li><a class="dropdown-item " href="#">Update Profile</a></li>
+                                <li><a class="dropdown-item" href="reset_admin.php?=Passwor Reset">Change Password</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </nav>
+  </header>
+
 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
-    <div class="outer-scontainer">
-<div class="row" align='center'>
-        
+    <div class="mt-5 outer-scontainer">
+
+    <section class="pt-5 animate__animated animate__fadeInRight">
+  <div class="container mt-5 p-4 table-responsive shadow-lg rounded rounded-4">       
         
            <form action="report_admin_day_wise_res.php? = Results" method="post" >
-           <table width='800' border='0'>
+    <table class=" table table-hover table-bordered rounded rounded-2 text-center align-middle">
            <tr>
-             <td colspan="5" align="center">Reports </td>
+             <th colspan="5" class="bg-light text-primary fs-4 text-center">PATIENT REPORTS <i class="bi bi-file-earmark-medical"></i></th>
              <tr>
-               <td width="140" align="left">Report Date</td>
-               <td width="191" align="left"><input type ="date" name="reg_date" class="tb1" required></td>
-               <td width="150" align="center">Test Type</td>
-               <td align="center"><select name="t_type" class="tb1" required="">
+               <th>Report Date</td>
+               <td ><input type ="date" name="reg_date" class="form-control" required></td>
+               <th >Test Type</th>
+               <td align="center"><select name="t_type" class="form-control" required="">
                  <option selected>Type of Test</option>
                  <?php
 					   $type = mysqli_query($conn, "SELECT * FROM patient group by t_type order by t_type ASC");
@@ -87,16 +145,12 @@ function printContent(el){
                       <option value="3">RTK-Antigen(PERKESO)</option>
                       <option value="4">Antibody IGM/IGG</option> !-->
                </select></td>
-               <td align="left"><input type="submit" class="tb2" name="submit" value="Search"></td>
+               <td><input type="submit" class="btn btn-outline-secondary" name="submit" value="Search"></td>
              <tr>
-           <td width="140" align="left">&nbsp;</td>
-           <td align="left">&nbsp;</td>
-           <td width="128" align="left">&nbsp;</td>
-           <td width="180" align="left">&nbsp;</td>
-           <td width="139" align="left">&nbsp;</td>
              </table>
            </form>
-      
+  </div>
+            </section>
 </div>
 
 </body>

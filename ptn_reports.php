@@ -22,7 +22,7 @@ location.replace("logout.php? = Invalid Login");
 
 <html>  
 <head>
-    <meta name"viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!-- Bootstrap 5.3 cdn -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Bootstrap icons cdn -->
@@ -87,10 +87,10 @@ location.replace("logout.php? = Invalid Login");
 
 <section class="pt-5 mt-5">
   <div class="container p-4 shadow-lg rounded rounded-4 animate__animated animate__fadeInRight">
-    <table class="table table-responsive table-hover table-bordered">
+    <table class="table table-responsive table-hover table-bordered align-middle">
       <thead>
         <tr class="text-center fs-4">
-          <th scope="row" colspan="3" class="bg-light text-primary">Patient Test Reports</th>
+          <th scope="row" colspan="3" class="bg-light text-primary">Patient Test Reports <i class="bi bi-file-earmark-medical"></i></th>
         </tr>
       </thead>
       <tbody>

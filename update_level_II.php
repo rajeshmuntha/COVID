@@ -10,6 +10,7 @@ if($_SESSION["islogin"] == 'N'){
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
  <!-- Google Fonts cdn -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Bootstrap 5.3 cdn -->
@@ -23,7 +24,7 @@ if($_SESSION["islogin"] == 'N'){
 <header>
             <nav class="navbar navbar-expand-md  bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="employee_1.php? = Staff Home Page">
+                    <a class="navbar-brand" href="employee_2.php? = Staff Home Page">
                     <img src="./img/Logo.png" alt="Logo" width="45" height="auto" class="d-inline-block">
                     <span class="fw-bold fs-4 text-danger">COV-19</span><span class="fw-bold fs-4 text-primary"> SYS</span>
                     </a>
@@ -100,7 +101,7 @@ if($_SESSION["islogin"] == 'N'){
                 <td><input type="text" class="form-control" name="icno" placeholder="Enter IC/Passport No." required /></td>
             </tr>
             <tr class="">
-                <th scope="row" colspan="2"><input type="submit" name="submit" class="btn btn-outline-success" value="Search for results" /></th>
+                <th scope="row" colspan="2"><input type="submit" name="submit" class="btn btn-outline-primary" value="Search for results" /></th>
             </tr>
         </tbody>
         </table>
