@@ -118,8 +118,8 @@ if($type==1)
             </nav>
   </header>
 
- <section class="pt-4  animate__animated animate__fadeInRight">
-  <div class="container p-4 table-responsive shadow-lg rounded rounded-4">
+ <section class="pt-5  animate__animated animate__fadeInRight">
+  <div class="container mt-5 p-4 table-responsive shadow-lg rounded rounded-4">
 <form id="form1" method="post" action='' runat="server">
 <input type="hidden" name="r_id" value="<?php echo $id;?>"/>
 <input type="hidden" name="icno" value="<?php echo $icno;?>"/>

@@ -175,9 +175,8 @@ $diff = date_diff(date_create($dob), date_create($today));
 	</td>
 </tr>
 </table>
-</div>
-<br>
-<div class="container rounded rounded-4 shadow p-4 mt-4 table-responsive">
+
+<div class="">
 <table class="table table-bordered">
   <thead>
 	<tr>       
@@ -278,6 +277,8 @@ $diff = date_diff(date_create($dob), date_create($today));
   </tr>
 </table>
 </div>
+</div>
+<br>
 <script>
 function printContent(el){
 	var restorepage = document.body.innerHTML;
@@ -290,7 +291,7 @@ function printContent(el){
 
 
 
-
+<div class="container mt-4 p-4 shadow-lg rounded rounded-4">
  <div id="div1">
 <style type="text/css">
 .tb1{
@@ -342,9 +343,6 @@ function printContent(el){
 				$regno = $row['validation'];
 				
 				echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
 			echo "<table class='table table-bordered'>";
 			echo "<tr>";
 			echo "<td>";
@@ -2190,7 +2188,8 @@ INFLUENZA A or B present in human nasopharynx.";
 	}
 		  ?>
   </div>
-		 
+</div>
+
  <?php
 	}
 
@@ -2198,7 +2197,7 @@ INFLUENZA A or B present in human nasopharynx.";
 else {
           //  echo "<center>INVALID PATIENT ID</center>";
 					echo"<div class='container p-5'>
-									<div class='alert alert-danger' role='alert'>
+									<div class='alert alert-danger animate__animated animate__zoomIn' role='alert'>
 									<button type='button' class='btn-close float-end'  data-bs-dismiss='alert' aria-label='Close'> </button>
   								<h4 class=''>No Results were found!</h4>
 									<p>Entered ID doesn't matched to any, so kindly cross check with the entered Patient Uniq ID.</p>

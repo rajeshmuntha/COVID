@@ -36,9 +36,7 @@ $res=mysqli_query($conn,"select * from authenticate where user_id='".$auth."'");
 <html lang="en">
 	<head>
     <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
-    <!-- Google Fonts cdn -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Bootstrap 5.3 cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Bootstrap icons cdn -->

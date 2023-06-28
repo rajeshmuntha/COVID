@@ -41,87 +41,83 @@ $res=mysqli_query($conn,"select * from patient where validation='".$auth."'");
 						
 						}
 ?>
-
+<br>
 <html lang="en">
 	<head>
     <link rel="shortcut icon" type="image/icon" href="img/favicon.png"/>
-    <meta name"viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      
+    
+		<!-- Bootstrap icons cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
-<style>
-	*{
-		box-sizing: border-box;
-	}
-</style>
-<body>
-	
-<div class="container mt-5 p-4 shadow rounded rounded-4 table-responsive">
-<table class="table table-hover table-bordered animate__animated animate__fadeInLeft">
-<tr>
-	<td colspan="4" class="bg-light fs-4 text-primary fw-bold" align="center" valign="middle">Patient Profile</td>
-</tr>
-<tr>
-	<td colspan="4" class="bg-light" align="left" valign="middle"><strong>NAME: </strong><?php echo $f_name.'&nbsp;'.$l_name;?></td>
-</tr>
-<tr>       
-	<td><strong>MRN: </strong><?php echo $icno;?></td>
-	<td ><strong>GENDER:</strong> <?php echo strtoupper($gen);?></td>
-	<td  rowspan="3" align="center"><img src="img/cov-19-logo.png" width="85" height="100"></td>
-</tr>
-<tr>
-<?php
-//$dateOfBirth = "17-10-1985";
-$today = date("Y-m-d");
-$diff = date_diff(date_create($dob), date_create($today));
-//echo 'Age is '.$diff->format('%y');
-?>
+	</head>
 
-	<td height="35"><strong>AGE: </strong><?php echo ''.$diff->format('%y');?></td>
-	<td><strong>DOB: </strong><?php echo $dob;?></td>
-</tr>
-<tr>
-	<td height="35"><strong>NATIONAL ID:</strong><?php echo $icno;?> </td>
-	<td><strong>DOCTOR: </strong>
-		<?php
-		$doc=mysqli_query($conn,"select * from results where r_id='".$p_id."'");
-					while($row=mysqli_fetch_array($doc))
-											{
-											$name = $row["uid"];
-												$name=mysqli_query($conn,"select * from authenticate where user_id='".$name."'");
-													while($row1=mysqli_fetch_array($name))
-											{
-															echo $row1["name"];
-							$doctor = $row1["name"];
-							
-											}  
-											}
-											 ?>
+	<body>
 
-	</td>
-</tr>
+
+	<section class="">
+  <div class="container mt-2 p-4 shadow-lg rounded rounded-4 table-responsive">
+    <table id="des" class="table table-hover table-bordered text-center align-middle animate__animated animate__fadeInRight">
+		<tr>
+          <th colspan="3" class="bg-light text-primary fs-4 text-center">PATIENT DASHBOARD &nbsp; <i class="bi bi-file-medical"></i></th>        
+        <tr>
+  <tr>
+    <td colspan="4" align="left" valign="middle"><strong>Name: </strong><?php echo $f_name.'&nbsp;'.$l_name;?></td>
+  </tr>
+  <tr>       
+    <td class="text-start"><strong>MRN: </strong><?php echo $icno;?></td>
+    <td  class="text-start"><strong>GENDER:</strong> <?php echo strtoupper($gen);?></td>
+    <td  rowspan="3" align="center"><img src="img/cov-19-logo.png" width="85" height="100"></td>
+  </tr>
+  <tr>
+  <?php
+	//$dateOfBirth = "17-10-1985";
+	$today = date("Y-m-d");
+	$diff = date_diff(date_create($dob), date_create($today));
+	//echo 'Age is '.$diff->format('%y');
+  ?>
+  
+    <td  class="text-start""><strong>AGE: </strong><?php echo ''.$diff->format('%y');?></td>
+    <td class="text-start"><strong>DOB: </strong><?php echo $dob;?></td>
+  </tr>
+  <tr>
+    <td  class="text-start"><strong>NATIONAL ID:</strong><?php echo $icno;?> </td>
+    <td class="text-start"><strong>DOCTOR: </strong>
+      <?php
+      $doc=mysqli_query($conn,"select * from results where r_id='".$p_id."'");
+            while($row=mysqli_fetch_array($doc))
+                        {
+                        $name = $row["uid"];
+                          $name=mysqli_query($conn,"select * from authenticate where user_id='".$name."'");
+                            while($row1=mysqli_fetch_array($name))
+                        {
+                                echo $row1["name"];
+								$doctor = $row1["name"];
+								
+                        }  
+                        }
+                         ?>
+
+    </td>
+  </tr>
 </table>
 
-<hr class="text-danger">
-
-<table class="table table-hover table-bordered text-center animate__animated animate__fadeInRight">
-  <thead>
-	<tr>       
-    <td space="row"><strong>TEST ID</strong></td>
-    <td space="row"><strong>TEST OBTAINED</strong></td>
-    <td space="row"><strong>COLLECTION DATE</strong> </td>
-    <td space="row"><strong>TEST STATUS</strong></td>
-		<td space="row"><strong>TEST RESULT</strong></td>
+<div class="table-responsive">
+	
+    <table id="des" class="table table-hover table-bordered text-center align-middle animate__animated animate__fadeInLeft">
+  <tr>       
+    <td ><strong>TEST ID</strong></td>
+    <td ><strong>TEST OBTAINED</strong></td>
+    <td ><strong>COLLECTION DATE</strong> </td>
+    <td ><strong>TEST STATUS</strong></td>
+	<td ><strong>TEST RESULT</strong></td>
   </tr>
-	</thead>
-  <tbody>
-	<tr>
-    <td><?php echo $validation;?> </td>
+  <tr>
+    <td ><?php echo $validation;?> </td>
     
    <!--  test type declaration  !--> 
-    <td> <?php //echo $type;
+    <td > <?php //echo $type;
 	$type=mysqli_query($conn,"select * from test_type where id='".$type."'");
 						while($row=mysqli_fetch_array($type))
                         {
@@ -132,8 +128,8 @@ $diff = date_diff(date_create($dob), date_create($today));
 	
 	
 	</td>
-    <td><?php echo $test_date;?> </td>
-	<td><?php //echo $icno;
+    <td ><?php echo $test_date;?> </td>
+	<td ><?php //echo $icno;
     $results = mysqli_query($conn, "SELECT * FROM results WHERE r_id = '".$p_id."' AND icno = '".$icno."'");
       $numrows = mysqli_num_rows($results);
     if($numrows == 0)
@@ -145,8 +141,12 @@ $diff = date_diff(date_create($dob), date_create($today));
         $res_q = mysqli_query($conn, "SELECT * FROM results WHERE r_id = '".$p_id."' AND icno = '".$icno."'");
         while($row2=mysqli_fetch_array($res_q))
                         {
+			//results   Positive / Negative Report
+			//$results = $row1["r_case"];
+            //echo $row2["r_case"];
             if($row2["r_case"]==0)
 			{
+				//echo "Influenza A & B";
 				$inf=mysqli_query($conn,"select * from results where r_id = '".$p_id."' AND icno = '".$icno."'");
 						while($row=mysqli_fetch_array($inf))
                         {
@@ -195,54 +195,22 @@ $diff = date_diff(date_create($dob), date_create($today));
       }
 
   ?> </td>
-    <td>
-			<form method="post"> 
-        <input type="button" name="report" class="btn btn-outline-secondary btn-sm" value="Report" data-bs-toggle="modal" data-bs-target="#exampleModal" /> 
-      </form>
-		</td>
+    <td><center>  <form method="post"> 
+        <input type="submit" name="report" class="btn btn-outline-secondary" value="Get Report" /> 
+          
+           </form> </center></td>
   </tr>
-	</tbody>
 </table>
 </div>
+<div class="text-center">
+	<button onClick="printContent('div1')" class="btn btn-outline-primary">Print Report <i class="bi bi-printer"></i></button>
+</div>
+	</div>
+	</section>
 
-<br>
 
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header text-center bg-light">
-        <h1 class="modal-title text-primary fs-4" id="exampleModalLabel">Test Report</h1>
-        <button type="button" class="btn-close text-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
+  <div class="container mt-4 p-4 shadow-lg rounded rounded-4">
 <div id="div1">
-<style type="text/css">
-.tb1{
-	/*width: 800px;*/
-	border-collapse: collapse;
-	height: 20px;
-	text-align: left;
-	font-family: "cambria";
-	font-size: 15px;
-	border:#4e95f4;
-	}
-	
-</style>
-<style type="text/css">
-.tb7{
-	width: 1000px;
-	height: 100px;
-	border-collapse: collapse;
-	
-	font-family: "Courier";
-	font-size: 16px;
-	border:#4e95f4;	
-	}
-</style>
 <script>
 function printContent(el){
 	var restorepage = document.body.innerHTML;
@@ -274,7 +242,7 @@ function printContent(el){
 				$ngene = $row['ngene'];
 				$d_date = $row['date'];
 				
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table  class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			echo"<tr>";
@@ -456,7 +424,7 @@ function printContent(el){
 			while($row=mysqli_fetch_array($results))
 			{
 				$d_date = $row['date'];
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -624,7 +592,7 @@ function printContent(el){
 			echo "<br>";
 			echo "<br>";
 			echo "<br>";
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo"<td colspan='6'><center><img src='img/receipt.png' width='1000' height='180'></center></td>";
 			echo "</tr>";
@@ -790,7 +758,7 @@ function printContent(el){
 			while($row=mysqli_fetch_array($results))
 			{
 				$d_date = $row['date'];
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -949,7 +917,7 @@ function printContent(el){
 			while($row=mysqli_fetch_array($results))
 			{
 				$d_date = $row['date'];
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1105,7 +1073,7 @@ function printContent(el){
 			while($row=mysqli_fetch_array($results))
 			{
 				$d_date = $row['date'];
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1262,7 +1230,7 @@ function printContent(el){
 			while($row=mysqli_fetch_array($results))
 			{
 				$d_date = $row['date'];
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1415,7 +1383,7 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1574,7 +1542,7 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1732,7 +1700,7 @@ function printContent(el){
 				$d_date = $row['date'];
 				$regno = $row['validation'];
 			
-			echo "<table width='1200' class='tb7' height='18' border='0' align='center'>";
+			echo "<table class='' height='18' border='0' align='center'>";
 			echo "<tr>";
 			echo "<td>";
 			
@@ -1915,28 +1883,11 @@ INFLUENZA A or B present in human nasopharynx.";
 
 
 			</div>
-		  <tr>
-		   <td colspan='6' align="center">
-			 
-		  </div>&nbsp;</td>
-			 
-		  </tr> 
+	</div>
 				</td>
 		  </tr>
 		  
 		</table>
-
-		</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-outline-primary" onClick="printContent('div1')">Print Report</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-		</body>
+		
+	</body>
 </html>
