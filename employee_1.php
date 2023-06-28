@@ -143,8 +143,8 @@ body
         </header>
 
 
-<section class="pt-5 animate__animated animate__backInRight">
-  <div class="container mt-5 p-4 shadow-lg rounded rounded-4">
+<section class="p-5 animate__animated animate__backInRight">
+  <div class=" mt-5 p-4 shadow-lg rounded rounded-4">
     <table class="table-responsive table table-hover table-bordered">
       <thead>
         <tr class="fs-5">
@@ -163,7 +163,7 @@ body
         <tr>
           <th scope="row" rowspan="5" class="text-center">
             <?php
-            echo "<img src='img/staff_pics/".$emp_id.".avif' width='100' height='auto'>"."";
+            echo "<img src='img/staff_pics/".$emp_id.".jpg' width='100' height='auto'>"."";
             ?>
           </th>
         </tr>
